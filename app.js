@@ -740,7 +740,7 @@ async function renderProblems(m, body, alive = () => true) {
       return `<section class="card prob-section">
         <div class="card-head">
           <h3>§${escapeAttr(s.ref)} · ${escapeAttr(s.title || "")}</h3>
-          <a class="prob-read" href="#/${m.id}/learn#sec-${s.ref.replace(".", "-")}">Read the section</a>
+          <a class="prob-read" href="#/${m.id}/learn#sec-${s.ref.replace(".", "-")}">Read §${escapeAttr(s.ref)}</a>
         </div>
         ${s.note ? `<div class="md prob-note">${MD.render(s.note)}</div>` : ""}
         ${byTier.map(([tier, items]) => `
@@ -1337,14 +1337,13 @@ async function renderSims(simId) {
   const row = index.find(r => r.id === simId);
   if (!row) { body.innerHTML = `<div class="card"><h3>No such trainer</h3></div>`; return; }
   if (needsKey(row.module)) {
-    body.innerHTML = `<div class="card lock-card">
-      <div class="lock-icon" aria-hidden="true">🔒</div>
-      <h3>${escapeAttr(row.title)}</h3>
-      <p class="muted lock-what">This trainer belongs to Module ${
-        MODULES.find(m => m.id === row.module)?.num || row.module}. ${WHAT_A_KEY_BUYS}</p>
-      <div class="row-gap">${buyButton()}
-        <a class="btn secondary" href="#/sims">Back to the trainers</a></div>
-    </div>`;
+    /* renderLock, not a card of our own: it is the one place that tells a buyer
+       who has merely lost a device slot from a visitor who never had a key. Two
+       surfaces used to hand-roll this and so sold the course back to people who
+       had already bought it. */
+    renderLock(body, `This trainer belongs to Module ${
+      MODULES.find(m => m.id === row.module)?.num || row.module}.`,
+      () => renderSims(simId));
     return;
   }
 
@@ -1353,8 +1352,7 @@ async function renderSims(simId) {
   try {
     pack = await Api.getSims(row.module);
   } catch (e) {
-    body.innerHTML = `<div class="card"><h3>Could not load this trainer</h3>
-      <p class="muted">${e.message}</p></div>`;
+    renderBlocked(body, e, () => renderSims(simId));
     return;
   }
   const sim = (pack?.sims || []).find(s => s.id === simId);
@@ -1423,13 +1421,8 @@ async function renderDocs(docId) {
   if (!row) { body.innerHTML = `<div class="card"><h3>No such page</h3></div>`; return; }
 
   if (docNeedsKey(row)) {
-    body.innerHTML = `<div class="card lock-card">
-      <div class="lock-icon" aria-hidden="true">🔒</div>
-      <h3>${escapeAttr(row.title)}</h3>
-      <p class="muted lock-what">${WHAT_A_KEY_BUYS}</p>
-      <div class="row-gap">${buyButton()}
-        <a class="btn secondary" href="#/docs">Back to the cheat sheets</a></div>
-    </div>`;
+    renderLock(body, `${escapeAttr(row.title)} is one of the reference pages a key opens.`,
+      () => renderDocs(docId));
     return;
   }
 
@@ -1440,8 +1433,10 @@ async function renderDocs(docId) {
     md = await Api.getCourseDoc(row.id, row.free);
   } catch (e) {
     if (epoch !== renderEpoch) return;
-    body.innerHTML = `<div class="card"><h3>Could not load this page</h3>
-      <p class="muted">${e.message}</p></div>`;
+    // renderBlocked, not a bare message: it distinguishes throttled from offline
+    // from signed-out, and every one of its cards carries a way back. A card
+    // that says "try again" with nothing to press is a dead end.
+    renderBlocked(body, e, () => renderDocs(docId));
     return;
   }
   if (epoch !== renderEpoch) return;
@@ -1476,8 +1471,7 @@ async function renderSignals() {
   try {
     md = await Api.getDoc("exam-signals");
   } catch (e) {
-    body.innerHTML = `<div class="card"><h3>Could not load this page</h3>
-      <p class="muted">${e.message}</p></div>`;
+    renderBlocked(body, e, () => renderSignals());
     return;
   }
   body.innerHTML = `<article class="md">${MD.render(md)}</article>`;
@@ -1572,9 +1566,7 @@ async function renderExam() {
   try {
     pool = await loadItems(modIds);
   } catch (e) {
-    if (e.code === "auth") return renderLock(body, e.message, () => renderExam());
-    body.innerHTML = `<div class="card"><h3>Could not load the exam</h3>
-      <p class="muted">${e.message}</p></div>`;
+    renderBlocked(body, e, () => renderExam());
     return;
   }
 

@@ -107,7 +107,7 @@ Method: divide every term by the highest power in the **denominator**, then use 
 | At $x=a$ | Result |
 | --- | --- |
 | $Q(a)=0$, $P(a)\ne 0$ | vertical asymptote $x=a$ |
-| factor cancels | removable hole, no VA |
+| factor cancels **completely** | removable hole, no VA |
 
 A graph may cross a horizontal asymptote; it never crosses a vertical one.
 

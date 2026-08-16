@@ -54,7 +54,10 @@
   --panel: #ffffff;
   --ink: #202b42;
   --ink-soft: #545d72;
-  --ink-faint: #6a7186;
+  /* 4.5:1 on every ground this palette paints, not just on white: at #6a7186
+     it measured 4.17 on --red-soft, which is where the "Licensed to …" line
+     sits — the anti-piracy mark, in the one colour it was hardest to read. */
+  --ink-faint: #5f6679;
   --line: #ded9cf;
   /* Controls need 3:1 against the panel they sit on (WCAG 1.4.11); the paper
      rule above is a divider and may stay a hairline. */

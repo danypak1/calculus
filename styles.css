@@ -894,7 +894,7 @@ h1.page-title { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spaci
   resize: vertical;
   background: var(--bg);
 }
-.written-card textarea:focus { outline: none; border-color: var(--accent); background: var(--panel); }
+.written-card textarea:focus:not(:focus-visible) { outline: none; border-color: var(--accent); background: var(--panel); }
 .model-box {
   margin-top: 14px;
   background: var(--accent-soft);
@@ -1058,7 +1058,7 @@ h1.page-title { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spaci
   color: var(--ink);
   background: var(--bg);
 }
-.field input:focus { outline: none; border-color: var(--accent); background: var(--panel); }
+.field input:focus:not(:focus-visible) { outline: none; border-color: var(--accent); background: var(--panel); }
 .login-msg { margin: 0; font-size: 13.5px; min-height: 1.2em; color: var(--ink-soft); }
 .login-msg.bad { color: var(--red); font-weight: 600; }
 .login-msg.good { color: var(--green); font-weight: 600; }
@@ -1077,7 +1077,7 @@ h1.page-title { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spaci
   color: var(--ink);
   background: var(--bg);
 }
-.lost-key input:focus { outline: none; border-color: var(--accent); background: var(--panel); }
+.lost-key input:focus:not(:focus-visible) { outline: none; border-color: var(--accent); background: var(--panel); }
 
 /* An access key is a fixed-width string; reading it back to check a typo is
    much easier when the glyphs line up. */
@@ -1202,6 +1202,16 @@ h1.page-title { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spaci
     radial-gradient(farthest-side at 0 50%, rgba(128, 128, 128, 0.34), transparent) left center / 14px 100% no-repeat scroll,
     radial-gradient(farthest-side at 100% 50%, rgba(128, 128, 128, 0.34), transparent) right center / 14px 100% no-repeat scroll;
 }
+/* A display formula gets its own scroller (above). An *inline* one gets none —
+   it is an inline box, so max-width does not apply to it — and a single wide
+   one widens the whole document: module 02's quotient-rule chant measured 467px
+   inside a 375px viewport and pushed every other line of the chapter sideways
+   by 125px. The paragraph becomes the scroller instead, which contains the
+   damage to the one line that earned it. Fixing the formula is still the right
+   move where it reads better as display maths; this is so the next one cannot
+   take the page with it. */
+.md p, .md li { overflow-x: auto; }
+
 /* Inline maths must not inflate the line height of a paragraph it sits in;
    a fraction is taller than the text around it and pushes lines apart. */
 .katex { font-size: 1.05em; }
@@ -1550,8 +1560,12 @@ h1.page-title { font-size: 28px; line-height: 1.2; margin: 0 0 4px; letter-spaci
 /* Same reason the catalogue rows needed a rule: an <a> with no style of its own
    falls through to the browser's blue-and-purple, which belongs to no palette
    this app has. */
+/* 44px tall and named by its section: ten links reading "Read the section" are
+   ten identical rows in a screen reader's link list, and a 21px target is not a
+   thumb target. */
 .prob-read { font-size: 13px; font-weight: 550; white-space: nowrap;
-             color: var(--accent); text-decoration: none; }
+             color: var(--accent); text-decoration: none;
+             display: inline-flex; align-items: center; min-height: 44px; }
 .prob-read:hover, .prob-read:focus-visible { text-decoration: underline; }
 .prob-note { margin: 6px 0 0; color: var(--ink-soft); font-size: 14.5px; }
 

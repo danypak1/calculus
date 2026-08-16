@@ -13,7 +13,7 @@ That's the whole idea of this section:
 - **Average rate of change** = comparing two points and asking "how much did y change, divided by how much x changed?" On a graph, this is the slope of the straight line connecting the two points — called a **secant line**.
 - **Instantaneous rate of change** = the rate at one single point. On a graph, this is the slope of the line that just barely grazes the curve at that one point — called a **tangent line**.
 
-**Picture it:** Draw a curve. Pick two points on it and connect them with a straight ruler — that's the secant line, and its slope is the average rate of change. Now slide the second point closer and closer to the first point. The ruler keeps tilting until, in the limit, it settles into a line that just kisses the curve at a single point without crossing through it. That final line is the tangent line, and its slope is the instantaneous rate of change.
+**Picture it:** Draw a curve. Pick two points on it and connect them with a straight ruler — that's the secant line, and its slope is the average rate of change. Now slide the second point closer and closer to the first point. The ruler keeps tilting until, in the limit, it settles into a line that just grazes the curve at that single point. That final line is the tangent line, and its slope is the instantaneous rate of change.
 
 **How do we actually compute the tangent slope?** We use a trick: pretend the second point is a *tiny* step away from the first, a distance we call $h$. We compute the secant slope using that tiny step, simplify the algebra, and then imagine $h$ shrinking all the way down to $0$. Whatever number the slope settles on is the tangent slope. This is called taking a **limit**, and we'll get more comfortable with limits formally in the next unit — for now, just think of it as "let $h$ shrink to nothing and see what number the slope approaches."
 
@@ -258,7 +258,7 @@ $$\lim_{x\to\infty}\frac{c}{x^n} = 0 \quad \text{for any constant } c \text{ and
 
 **Vertical asymptotes:** for a rational function $\dfrac{P(x)}{Q(x)}$, a vertical asymptote occurs at any $x=a$ where $Q(a)=0$ **and** $P(a)\ne 0$ (the factor causing the zero does *not* cancel out). This is exactly the infinite-discontinuity idea from §1.5.
 
-**The cancellation trap (important!):** always factor the top and bottom fully *before* deciding on vertical asymptotes. If a factor cancels between the numerator and denominator, that $x$-value is only a **removable hole**, not a vertical asymptote — the graph doesn't blow up there at all.
+**The cancellation trap (important!):** always factor the top and bottom fully *before* deciding on vertical asymptotes. If a factor cancels *completely* between the numerator and denominator, that $x$-value is only a **removable hole**, not a vertical asymptote — the graph doesn't blow up there at all. Cancel first, then look: whatever still makes the denominator zero afterwards is a vertical asymptote. (In $\dfrac{x-1}{(x-1)^2}$ the factor cancels and one copy survives below, so $x=1$ *is* an asymptote.)
 
 ### Common mistakes
 
