@@ -1,0 +1,181 @@
+/* Intuitive Calculus — the "paper" theme.
+ *
+ * Loaded after styles.css, which stays a byte-for-byte copy of the kit's so
+ * that fixes to the machinery can still be taken without re-doing the design.
+ * This file therefore changes tokens and type, not layout: everything below is
+ * either a custom property the kit already reads, a @font-face, or a rule that
+ * paints something the kit left plain.
+ *
+ * The palette is not new. It is the one the course's own materials already used
+ * — the navigation page and the four canvas trainers — so a student who met the
+ * course as a folder of PDFs meets the same object here: warm paper ruled in a
+ * 40px grid, a serif for anything that names something, brick for what the
+ * author is pointing at, sage for what is settled.
+ *
+ * Where it deliberately does NOT follow those materials: brick is the accent for
+ * *controls*, so the quiz's "wrong" red is pushed deeper and browner than the
+ * brick to keep the two apart — a button and an error must never be the same
+ * colour in a screen whose whole job is telling you which answers were wrong.
+ */
+
+/* ---------- type ----------
+   Vendored, not fetched: the published site has no external dependency, which
+   is also what keeps it working offline and out of a font CDN's logs. Latin
+   subsets only, four weights of the text face and one of the display face —
+   108 KB in total, less than a fifth of what KaTeX already costs. */
+@font-face {
+  font-family: "Fraunces"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("vendor/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces"; font-style: italic; font-weight: 600; font-display: swap;
+  src: url("vendor/fonts/fraunces-latin-600-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("vendor/fonts/source-sans-3-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("vendor/fonts/source-sans-3-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("vendor/fonts/source-sans-3-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("vendor/fonts/source-sans-3-latin-700-normal.woff2") format("woff2");
+}
+
+/* ---------- light: paper ---------- */
+:root {
+  --bg: #f6f5f1;
+  --panel: #ffffff;
+  --ink: #202b42;
+  --ink-soft: #545d72;
+  --ink-faint: #6a7186;
+  --line: #ded9cf;
+  /* Controls need 3:1 against the panel they sit on (WCAG 1.4.11); the paper
+     rule above is a divider and may stay a hairline. */
+  --line-ui: #8b8676;
+
+  --accent: #a6392b;
+  --accent-soft: #f8efec;
+  --accent-line: #e7cec8;
+  --on-accent: #ffffff;
+
+  /* Sage is "settled, correct" in the source materials, and it is what the
+     trainers already draw the true value in. */
+  --green: #3f6f5e;
+  --green-soft: #edf3f0;
+  --green-line: #c6d9d1;
+  /* Deeper and browner than the brick accent on purpose — see the header. */
+  --red: #8a1f14;
+  --red-soft: #fbeae7;
+  --red-line: #eac5bd;
+  --amber: #855c10;
+  --amber-soft: #fbf1dc;
+  --amber-line: #e5d1a3;
+
+  --code-bg: #f1efe8;
+  --scrim: rgba(32, 43, 66, .42);
+  --shadow-drawer: 0 0 40px rgba(32, 43, 66, .16);
+  --shadow-card: 0 1px 2px rgba(32, 43, 66, .04), 0 6px 20px rgba(32, 43, 66, .05);
+
+  --radius: 12px;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-text: "Source Sans 3", system-ui, -apple-system, sans-serif;
+}
+
+/* The ruled paper. Fixed, so the page slides over the grid rather than dragging
+   it along — the same trick the course's navigation page uses, and the reason
+   the background reads as a sheet you are writing on instead of a texture. */
+body {
+  font-family: var(--font-text);
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--bg);
+  background-attachment: fixed;
+}
+:root { --grid: #e6e2d7; }
+
+/* Anything that names something is set in the display face. Body copy, controls
+   and maths stay in the text face — a serif UI reads as a pastiche, and KaTeX
+   brings its own faces regardless. */
+h1, h2, h3, h4,
+.brand, .page-title, .card-head h3, .tier-head, .m-title, .stat strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.tier-head { letter-spacing: .06em; }
+
+/* The notes are the one surface a student reads for an hour at a time, so they
+   get the measure and the rag of a printed page rather than of an app panel. */
+.md { line-height: 1.62; }
+.md h2 { letter-spacing: -0.01em; }
+.md blockquote { border-left-color: var(--accent); background: var(--accent-soft); }
+
+/* ---------- dark ----------
+   The materials are light-only, so this is an interpretation rather than a
+   port: warm ink instead of the kit's blue-grey, and both accents lifted until
+   they hold their meaning on a dark ground. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181a;
+    --panel: #1f2124;
+    --ink: #eeeae1;
+    --ink-soft: #b3aea4;
+    --ink-faint: #948f86;
+    --line: #33353a;
+    --line-ui: #6f7079;
+
+    --accent: #d9705d;
+    --accent-soft: #2b1f1d;
+    --accent-line: #5a3830;
+    --on-accent: #1a1213;
+
+    --green: #79b3a0;
+    --green-soft: #1a2422;
+    --green-line: #34514a;
+    --red: #e08573;
+    --red-soft: #2a1a18;
+    --red-line: #5b332c;
+    --amber: #d3a75d;
+    --amber-soft: #262017;
+    --amber-line: #55452a;
+
+    --code-bg: #26282c;
+    --grid: #1e2023;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17181a;
+  --panel: #1f2124;
+  --ink: #eeeae1;
+  --ink-soft: #b3aea4;
+  --ink-faint: #948f86;
+  --line: #33353a;
+  --line-ui: #6f7079;
+
+  --accent: #d9705d;
+  --accent-soft: #2b1f1d;
+  --accent-line: #5a3830;
+  --on-accent: #1a1213;
+
+  --green: #79b3a0;
+  --green-soft: #1a2422;
+  --green-line: #34514a;
+  --red: #e08573;
+  --red-soft: #2a1a18;
+  --red-line: #5b332c;
+  --amber: #d3a75d;
+  --amber-soft: #262017;
+  --amber-line: #55452a;
+
+  --code-bg: #26282c;
+  --grid: #1e2023;
+}

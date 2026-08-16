@@ -1,0 +1,26 @@
+[
+  {
+    "id": "limit-at-a-hole",
+    "module": "ch01",
+    "title": "The limit at a point the function never reaches",
+    "free": true
+  },
+  {
+    "id": "secant-to-tangent",
+    "module": "ch02",
+    "title": "Watching a secant slope settle on the derivative",
+    "free": false
+  },
+  {
+    "id": "riemann-rectangles",
+    "module": "ch04",
+    "title": "Rectangles closing in on an exact area",
+    "free": false
+  },
+  {
+    "id": "ftc-area-slope",
+    "module": "ch04",
+    "title": "Why the area function's slope is the curve's height",
+    "free": false
+  }
+]

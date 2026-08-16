@@ -1,0 +1,945 @@
+{
+ "module": "ch01",
+ "title": "Limits",
+ "sections": [
+  {
+   "ref": "1.1",
+   "title": "Rates of Change and Tangent Lines to Curves",
+   "items": [
+    {
+     "id": "1.1.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = x^2$. Find the average rate of change of $f$ from $x=1$ to $x=4$.",
+     "solution": "$f(x)=x^2$, from $x=1$ to $x=4$.\n\nCompute the two values: $f(4) = 16$ and $f(1) = 1$.\n\n$$\\frac{f(4)-f(1)}{4-1} = \\frac{16-1}{3} = \\frac{15}{3} = 5$$\n\n**Average rate of change $= 5$.**"
+    },
+    {
+     "id": "1.1.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = 3x + 2$. Find the average rate of change of $f$ from $x=-2$ to $x=5$. (Notice anything about the answer, given that $f$ is a straight line?)",
+     "solution": "$f(x)=3x+2$, from $x=-2$ to $x=5$.\n\n$f(5) = 3(5)+2 = 17$. $f(-2) = 3(-2)+2 = -4$.\n\n$$\\frac{17-(-4)}{5-(-2)} = \\frac{21}{7} = 3$$\n\n**Average rate of change $= 3$.** Notice this is exactly the slope $3$ from $f(x)=3x+2$ — for a straight line, the average rate of change between *any* two points is always the same, and it's just the line's slope."
+    },
+    {
+     "id": "1.1.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = x^2 - 2x$. Find the average rate of change of $f$ on the interval $[0,3]$.",
+     "solution": "$f(x)=x^2-2x$ on $[0,3]$.\n\n$f(3) = 9 - 6 = 3$. $f(0) = 0 - 0 = 0$.\n\n$$\\frac{3-0}{3-0} = 1$$\n\n**Average rate of change $= 1$.**"
+    },
+    {
+     "id": "1.1.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\sqrt{x}$. Find the average rate of change of $f$ from $x=1$ to $x=9$.",
+     "solution": "$f(x)=\\sqrt{x}$, from $x=1$ to $x=9$.\n\n$f(9) = 3$. $f(1) = 1$.\n\n$$\\frac{3-1}{9-1} = \\frac{2}{8} = \\frac{1}{4}$$\n\n**Average rate of change $= \\frac{1}{4}$.**"
+    },
+    {
+     "id": "1.1.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "Two points on a curve are $(2,5)$ and $(6,13)$. Find the slope of the secant line through them.",
+     "solution": "Points $(2,5)$ and $(6,13)$.\n\nSlope $= \\dfrac{\\text{change in }y}{\\text{change in }x} = \\dfrac{13-5}{6-2} = \\dfrac{8}{4} = 2$.\n\n**Slope of secant line $= 2$.**"
+    },
+    {
+     "id": "1.1.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = x^3$. Find the slope of the secant line from $x=1$ to $x=2$.",
+     "solution": "$f(x)=x^3$, from $x=1$ to $x=2$.\n\n$f(2) = 8$. $f(1) = 1$.\n\n$$\\frac{8-1}{2-1} = 7$$\n\n**Slope of secant line $= 7$.**"
+    },
+    {
+     "id": "1.1.7",
+     "n": 7,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\dfrac{1}{x}$. Find the average rate of change of $f$ on $[1,2]$.",
+     "solution": "$f(x)=\\dfrac{1}{x}$ on $[1,2]$.\n\n$f(2) = \\dfrac{1}{2}$. $f(1) = 1$.\n\n$$\\frac{\\frac{1}{2}-1}{2-1} = \\frac{-\\frac{1}{2}}{1} = -\\frac{1}{2}$$\n\n**Average rate of change $= -\\dfrac{1}{2}$.**\n\n---"
+    },
+    {
+     "id": "1.1.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "Let $f(x) = x^2$. Use the difference quotient $\\dfrac{f(a+h)-f(a)}{h}$, simplify, and let $h \\to 0$ to find the slope of the tangent line at $x=3$.",
+     "solution": "$f(x)=x^2$, tangent slope at $x=3$.\n\nStep 1 — write $f(3+h)$: $(3+h)^2 = 9 + 6h + h^2$.\n\nStep 2 — subtract $f(3) = 9$: $9+6h+h^2 - 9 = 6h + h^2$.\n\nStep 3 — divide by $h$: $\\dfrac{6h+h^2}{h} = 6+h$ (we can cancel one $h$ from every term, since $h \\ne 0$ while we're doing this step).\n\nStep 4 — let $h \\to 0$: $6 + 0 = 6$.\n\n**Tangent slope at $x=3$ is $6$.**"
+    },
+    {
+     "id": "1.1.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "Let $f(x) = x^2 + 1$. Find the slope of the tangent line at the point $(1,2)$ using the limit definition.",
+     "solution": "$f(x)=x^2+1$, tangent slope at $(1,2)$.\n\n$f(1+h) = (1+h)^2 + 1 = 1 + 2h + h^2 + 1 = 2 + 2h + h^2$.\n\nSubtract $f(1)=2$: $2+2h+h^2 - 2 = 2h+h^2$.\n\nDivide by $h$: $2+h$.\n\nLet $h\\to 0$: $2$.\n\n**Tangent slope at $(1,2)$ is $2$.**"
+    },
+    {
+     "id": "1.1.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "Let $f(x) = 2x^2 - 3x$. Find the slope of the tangent line at $x=2$.",
+     "solution": "$f(x)=2x^2-3x$, tangent slope at $x=2$.\n\n$f(2+h) = 2(2+h)^2 - 3(2+h)$.\n\nExpand $(2+h)^2 = 4+4h+h^2$, so $2(2+h)^2 = 8+8h+2h^2$.\n\nExpand $-3(2+h) = -6-3h$.\n\nAdd them: $8+8h+2h^2-6-3h = 2+5h+2h^2$.\n\n$f(2) = 2(4)-3(2) = 8-6=2$.\n\nSubtract: $2+5h+2h^2 - 2 = 5h+2h^2$.\n\nDivide by $h$: $5+2h$.\n\nLet $h\\to 0$: $5$.\n\n**Tangent slope at $x=2$ is $5$.**"
+    },
+    {
+     "id": "1.1.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "Let $f(x) = x^2$. Find the equation of the tangent line at $x=-1$.",
+     "solution": "$f(x)=x^2$, tangent line at $x=-1$.\n\nFirst find the slope: $f(-1) = 1$.\n\n$f(-1+h) = (-1+h)^2 = 1 - 2h + h^2$.\n\nSubtract $f(-1)=1$: $1-2h+h^2-1 = -2h+h^2$.\n\nDivide by $h$: $-2+h$.\n\nLet $h\\to 0$: $-2$. So the slope is $-2$.\n\nNow use the point-slope formula with point $(-1, 1)$ and slope $-2$:\n\n$$y - 1 = -2(x-(-1)) = -2(x+1)$$\n\n$$y - 1 = -2x - 2$$\n\n$$y = -2x - 1$$\n\n**Tangent line: $y = -2x - 1$.**"
+    },
+    {
+     "id": "1.1.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "Let $f(x) = -2x^2$. Using the definition, find the slope of the tangent line at $x=1$, then write the equation of the tangent line.",
+     "solution": "$f(x)=-2x^2$, tangent slope and tangent line at $x=1$.\n\n$f(1) = -2(1)^2 = -2$.\n\n$f(1+h) = -2(1+h)^2 = -2(1+2h+h^2) = -2-4h-2h^2$.\n\nSubtract $f(1)=-2$: $-2-4h-2h^2 - (-2) = -4h-2h^2$.\n\nDivide by $h$: $-4-2h$.\n\nLet $h\\to 0$: $-4$. So the slope is $-4$.\n\nTangent line through $(1,-2)$ with slope $-4$:\n\n$$y-(-2) = -4(x-1)$$\n\n$$y+2 = -4x+4$$\n\n$$y = -4x+2$$\n\n**Tangent slope $=-4$; tangent line: $y=-4x+2$.**"
+    },
+    {
+     "id": "1.1.13",
+     "n": 13,
+     "tier": "standard",
+     "prompt": "Let $f(x) = x^3$. Find the slope of the tangent line at $x=1$.",
+     "solution": "$f(x)=x^3$, tangent slope at $x=1$.\n\n$f(1) = 1$.\n\n$f(1+h) = (1+h)^3 = 1+3h+3h^2+h^3$ (this comes from the pattern $(a+b)^3 = a^3+3a^2b+3ab^2+b^3$).\n\nSubtract $f(1)=1$: $1+3h+3h^2+h^3-1 = 3h+3h^2+h^3$.\n\nDivide by $h$: $3+3h+h^2$.\n\nLet $h\\to 0$: $3$.\n\n**Tangent slope at $x=1$ is $3$.**\n\n---"
+    },
+    {
+     "id": "1.1.14",
+     "n": 14,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = x^2+1$. Find **both** the tangent line **and** the normal line at the point $(1,2)$.",
+     "solution": "$f(x)=x^2+1$, tangent and normal line at $(1,2)$.\n\nFrom Problem 9, we already know the tangent slope at this point is $2$.\n\n**Tangent line:** $y-2 = 2(x-1) \\Rightarrow y = 2x$.\n\n**Normal line:** the normal slope is the *negative reciprocal* of $2$, which is $-\\dfrac{1}{2}$.\n\n$$y - 2 = -\\frac{1}{2}(x-1)$$\n\n$$y = -\\frac{1}{2}x + \\frac{1}{2} + 2 = -\\frac{1}{2}x + \\frac{5}{2}$$\n\n**Tangent line: $y=2x$. Normal line: $y = -\\dfrac{1}{2}x + \\dfrac{5}{2}$.**"
+    },
+    {
+     "id": "1.1.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = x^2 - 4x + 3$. Find the point (or points) where the tangent line is **horizontal**. (Hint: find a general formula for the slope at $x=a$, then set it equal to $0$.)",
+     "solution": "$f(x)=x^2-4x+3$, find where the tangent is horizontal.\n\nA horizontal line has slope $0$, so we need to find where the tangent slope equals $0$. Let's find a *general* formula for the slope at any point $x=a$, then set it to $0$.\n\n$f(a) = a^2-4a+3$.\n\n$f(a+h) = (a+h)^2 - 4(a+h) + 3 = a^2+2ah+h^2 - 4a-4h+3$.\n\nSubtract $f(a)$: $(a^2+2ah+h^2-4a-4h+3) - (a^2-4a+3) = 2ah+h^2-4h$.\n\nDivide by $h$: $2a+h-4$.\n\nLet $h\\to 0$: slope $= 2a-4$.\n\nSet the slope to $0$: $2a-4=0 \\Rightarrow a=2$.\n\nFind the $y$-value there: $f(2) = 4-8+3 = -1$.\n\n**The tangent line is horizontal at the point $(2,-1)$.**"
+    },
+    {
+     "id": "1.1.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = x^2$. Find the point where the tangent line has slope $6$.",
+     "solution": "$f(x)=x^2$, find where the tangent slope is $6$.\n\nUsing the same style as Problems 8 and 11, the general slope formula for $f(x)=x^2$ at any point $x=a$ works out to $2a$ (you can check: at $a=3$ we got slope $6$ matching $2(3)=6$ from Problem 8, and at $a=-1$ we got slope $-2$ matching $2(-1)=-2$ from Problem 11).\n\nSet $2a = 6 \\Rightarrow a=3$.\n\nFind $y$: $f(3) = 9$.\n\n**The tangent slope equals $6$ at the point $(3,9)$.**"
+    },
+    {
+     "id": "1.1.17",
+     "n": 17,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\dfrac{1}{x}$. Find the slope of the tangent line at $x=2$ using the difference quotient. (You'll need to combine fractions before you can cancel the $h$.)",
+     "solution": "$f(x)=\\dfrac{1}{x}$, tangent slope at $x=2$.\n\n$$\\frac{f(2+h)-f(2)}{h} = \\frac{\\frac{1}{2+h} - \\frac{1}{2}}{h}$$\n\nTo subtract the two fractions in the numerator, put them over a common denominator $2(2+h)$:\n\n$$\\frac{1}{2+h} - \\frac{1}{2} = \\frac{2 - (2+h)}{2(2+h)} = \\frac{-h}{2(2+h)}$$\n\nNow divide this whole thing by $h$ (which means multiplying by $\\dfrac{1}{h}$):\n\n$$\\frac{-h}{2(2+h)} \\cdot \\frac{1}{h} = \\frac{-1}{2(2+h)}$$\n\nNow let $h\\to 0$:\n\n$$\\frac{-1}{2(2+0)} = \\frac{-1}{4}$$\n\n**Tangent slope at $x=2$ is $-\\dfrac{1}{4}$.**"
+    },
+    {
+     "id": "1.1.18",
+     "n": 18,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\sqrt{x}$. Find the slope of the tangent line at $x=4$ using the difference quotient. (You'll need to multiply by a conjugate before you can cancel the $h$.)",
+     "solution": "$f(x)=\\sqrt{x}$, tangent slope at $x=4$.\n\n$$\\frac{f(4+h)-f(4)}{h} = \\frac{\\sqrt{4+h}-\\sqrt{4}}{h} = \\frac{\\sqrt{4+h}-2}{h}$$\n\nHere, plugging in $h=0$ directly gives $\\frac{0}{0}$, and there's no obvious factor of $h$ to cancel — so we use a special trick: multiply top and bottom by the **conjugate** $\\sqrt{4+h}+2$. This works because $(\\sqrt{4+h}-2)(\\sqrt{4+h}+2) = (4+h) - 4 = h$, which clears out the square root.\n\n$$\\frac{\\sqrt{4+h}-2}{h} \\cdot \\frac{\\sqrt{4+h}+2}{\\sqrt{4+h}+2} = \\frac{(4+h)-4}{h(\\sqrt{4+h}+2)} = \\frac{h}{h(\\sqrt{4+h}+2)}$$\n\nCancel the $h$:\n\n$$\\frac{1}{\\sqrt{4+h}+2}$$\n\nNow let $h\\to 0$:\n\n$$\\frac{1}{\\sqrt{4}+2} = \\frac{1}{2+2} = \\frac{1}{4}$$\n\n**Tangent slope at $x=4$ is $\\dfrac{1}{4}$.**\n\n---"
+    },
+    {
+     "id": "1.1.19",
+     "n": 19,
+     "tier": "applied",
+     "prompt": "A ball is thrown, and its height in meters after $t$ seconds is $h(t) = 20t - 5t^2$. Find the **average velocity** from $t=1$ to $t=3$.",
+     "solution": "$h(t) = 20t-5t^2$, average velocity from $t=1$ to $t=3$.\n\n$h(3) = 20(3)-5(9) = 60-45 = 15$.\n\n$h(1) = 20(1)-5(1) = 20-5=15$.\n\n$$\\frac{h(3)-h(1)}{3-1} = \\frac{15-15}{2} = 0$$\n\n**Average velocity $= 0$ m/s.** This makes sense: the ball is at the same height ($15$ m) at both times — it went up and came back down to that same height, so its *net* change in position over that interval is zero, even though it was clearly moving the whole time."
+    },
+    {
+     "id": "1.1.20",
+     "n": 20,
+     "tier": "applied",
+     "prompt": "Using the same height function $h(t) = 20t - 5t^2$, find the **instantaneous velocity** at $t=1$, using the limit definition.",
+     "solution": "Instantaneous velocity at $t=1$ for $h(t)=20t-5t^2$.\n\nWe'll use $k$ as our tiny step (to avoid confusing it with the function's name $h$).\n\n$h(1) = 15$ (from Problem 19).\n\n$$h(1+k) = 20(1+k) - 5(1+k)^2 = 20+20k - 5(1+2k+k^2) = 20+20k-5-10k-5k^2$$\n\n$$= 15+10k-5k^2$$\n\nSubtract $h(1)=15$: $10k-5k^2$.\n\nDivide by $k$: $10-5k$.\n\nLet $k \\to 0$: $10$.\n\n**Instantaneous velocity at $t=1$ is $10$ m/s.**"
+    },
+    {
+     "id": "1.1.21",
+     "n": 21,
+     "tier": "applied",
+     "prompt": "A car's position in miles after $t$ hours is $s(t) = t^2 + 2t$. Find the average speed over $[0,2]$, and then find the instantaneous speed at $t=2$.",
+     "solution": "$s(t)=t^2+2t$, average speed on $[0,2]$ and instantaneous speed at $t=2$.\n\n**Average speed:** $s(2) = 4+4=8$. $s(0)=0$.\n\n$$\\frac{8-0}{2-0}=4$$\n\n**Average speed $=4$ mph.**\n\n**Instantaneous speed at $t=2$:**\n\n$$s(2+k) = (2+k)^2+2(2+k) = 4+4k+k^2+4+2k = 8+6k+k^2$$\n\nSubtract $s(2)=8$: $6k+k^2$.\n\nDivide by $k$: $6+k$.\n\nLet $k\\to 0$: $6$.\n\n**Instantaneous speed at $t=2$ is $6$ mph.**"
+    },
+    {
+     "id": "1.1.22",
+     "n": 22,
+     "tier": "applied",
+     "prompt": "The temperature (in °F) $x$ hours after 6 AM is modeled by $T(x) = -0.1x^2 + 2x + 50$. Find the average rate of change of temperature between hour $2$ and hour $8$. Then find the instantaneous rate of change of temperature at hour $5$.",
+     "solution": "$T(x) = -0.1x^2+2x+50$. Average rate of change from $x=2$ to $x=8$, and instantaneous rate at $x=5$.\n\n**Average rate of change:**\n\n$T(8) = -0.1(64)+2(8)+50 = -6.4+16+50 = 59.6$.\n\n$T(2) = -0.1(4)+2(2)+50 = -0.4+4+50=53.6$.\n\n$$\\frac{59.6-53.6}{8-2} = \\frac{6}{6} = 1$$\n\n**Average rate of change $= 1\\text{°F per hour}$.**\n\n**Instantaneous rate at $x=5$:**\n\n$$T(5+k) = -0.1(5+k)^2 + 2(5+k) + 50$$\n\nExpand $(5+k)^2 = 25+10k+k^2$, so $-0.1(5+k)^2 = -2.5-k-0.1k^2$.\n\nExpand $2(5+k) = 10+2k$.\n\nAdd everything: $-2.5-k-0.1k^2+10+2k+50 = 57.5+k-0.1k^2$.\n\n$T(5) = -0.1(25)+10+50 = -2.5+10+50 = 57.5$.\n\nSubtract: $k-0.1k^2$.\n\nDivide by $k$: $1-0.1k$.\n\nLet $k\\to 0$: $1$.\n\n**Instantaneous rate of change at hour 5 is $1\\text{°F per hour}$.**"
+    }
+   ]
+  },
+  {
+   "ref": "1.2",
+   "title": "The Limit of a Function and Limit Laws",
+   "items": [
+    {
+     "id": "1.2.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 3}(2x+1)$",
+     "solution": "$\\displaystyle\\lim_{x\\to 3}(2x+1)$\n\nThis is a straight line — no division, no square roots, nothing tricky. Just plug in $x=3$:\n\n$$2(3)+1 = 7$$\n\n**Answer: $7$.**"
+    },
+    {
+     "id": "1.2.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to -2}(x^2-3x+4)$",
+     "solution": "$\\displaystyle\\lim_{x\\to -2}(x^2-3x+4)$\n\nPlug in $x=-2$ directly:\n\n$$(-2)^2 - 3(-2) + 4 = 4 + 6 + 4 = 14$$\n\n**Answer: $14$.**"
+    },
+    {
+     "id": "1.2.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 1}(3x^2-2x+5)$",
+     "solution": "$\\displaystyle\\lim_{x\\to 1}(3x^2-2x+5)$\n\nPlug in $x=1$:\n\n$$3(1)^2 - 2(1) + 5 = 3-2+5 = 6$$\n\n**Answer: $6$.**"
+    },
+    {
+     "id": "1.2.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 0}(x^3+2x^2-1)$",
+     "solution": "$\\displaystyle\\lim_{x\\to 0}(x^3+2x^2-1)$\n\nPlug in $x=0$:\n\n$$0 + 0 - 1 = -1$$\n\n**Answer: $-1$.**"
+    },
+    {
+     "id": "1.2.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 4}\\sqrt{x+5}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 4}\\sqrt{x+5}$\n\nPlug in $x=4$:\n\n$$\\sqrt{4+5} = \\sqrt{9} = 3$$\n\n**Answer: $3$.**"
+    },
+    {
+     "id": "1.2.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2+1}{x+3}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2+1}{x+3}$\n\nThe denominator at $x=2$ is $2+3=5$, which is not zero, so we can just plug straight in:\n\n$$\\frac{2^2+1}{2+3} = \\frac{5}{5} = 1$$\n\n**Answer: $1$.**"
+    },
+    {
+     "id": "1.2.7",
+     "n": 7,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to 5}\\frac{x+5}{x^2-20}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 5}\\frac{x+5}{x^2-20}$\n\nThe denominator at $x=5$ is $25-20=5$, not zero, so direct substitution works:\n\n$$\\frac{5+5}{25-20} = \\frac{10}{5} = 2$$\n\n**Answer: $2$.**\n\n---"
+    },
+    {
+     "id": "1.2.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2-7x+10}{x-2}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2-7x+10}{x-2}$\n\nPlugging in $x=2$ gives $\\frac{4-14+10}{0} = \\frac{0}{0}$ — a signal to factor.\n\nFactor the top: we need two numbers that multiply to $10$ and add to $-7$: those are $-2$ and $-5$.\n\n$$x^2-7x+10 = (x-2)(x-5)$$\n\nSo the fraction becomes:\n\n$$\\frac{(x-2)(x-5)}{x-2}$$\n\nCancel the common factor $(x-2)$ (allowed since we're looking at values *near*, not *at*, $x=2$):\n\n$$x-5$$\n\nNow plug in $x=2$: $2-5 = -3$.\n\n**Answer: $-3$.**"
+    },
+    {
+     "id": "1.2.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 3}\\frac{x^2-9}{x-3}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 3}\\frac{x^2-9}{x-3}$\n\nPlugging in gives $\\frac{0}{0}$. Factor the top as a difference of squares:\n\n$$x^2-9 = (x-3)(x+3)$$\n\nCancel $(x-3)$:\n\n$$x+3$$\n\nPlug in $x=3$: $3+3=6$.\n\n**Answer: $6$.**"
+    },
+    {
+     "id": "1.2.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to -1}\\frac{x^2+3x+2}{x+1}$",
+     "solution": "$\\displaystyle\\lim_{x\\to -1}\\frac{x^2+3x+2}{x+1}$\n\nPlugging in gives $\\frac{0}{0}$. Factor the top: need two numbers multiplying to $2$, adding to $3$: those are $1$ and $2$.\n\n$$x^2+3x+2 = (x+1)(x+2)$$\n\nCancel $(x+1)$:\n\n$$x+2$$\n\nPlug in $x=-1$: $-1+2=1$.\n\n**Answer: $1$.**"
+    },
+    {
+     "id": "1.2.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 4}\\frac{x^2-16}{x-4}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 4}\\frac{x^2-16}{x-4}$\n\nPlugging in gives $\\frac{0}{0}$. Factor as difference of squares:\n\n$$x^2-16 = (x-4)(x+4)$$\n\nCancel $(x-4)$:\n\n$$x+4$$\n\nPlug in $x=4$: $4+4=8$.\n\n**Answer: $8$.**"
+    },
+    {
+     "id": "1.2.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 1}\\frac{x^3-1}{x-1}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 1}\\frac{x^3-1}{x-1}$\n\nPlugging in gives $\\frac{0}{0}$. Use the \"difference of cubes\" pattern: $a^3-b^3=(a-b)(a^2+ab+b^2)$, with $a=x$, $b=1$:\n\n$$x^3-1 = (x-1)(x^2+x+1)$$\n\nCancel $(x-1)$:\n\n$$x^2+x+1$$\n\nPlug in $x=1$: $1+1+1=3$.\n\n**Answer: $3$.**"
+    },
+    {
+     "id": "1.2.13",
+     "n": 13,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2-5x+6}{x^2-4}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 2}\\frac{x^2-5x+6}{x^2-4}$\n\nPlugging in gives $\\frac{4-10+6}{4-4} = \\frac{0}{0}$.\n\nFactor the top: numbers multiplying to $6$, adding to $-5$: $-2$ and $-3$.\n\n$$x^2-5x+6 = (x-2)(x-3)$$\n\nFactor the bottom as a difference of squares:\n\n$$x^2-4 = (x-2)(x+2)$$\n\nSo the fraction is:\n\n$$\\frac{(x-2)(x-3)}{(x-2)(x+2)}$$\n\nCancel $(x-2)$:\n\n$$\\frac{x-3}{x+2}$$\n\nPlug in $x=2$: $\\dfrac{2-3}{2+2} = \\dfrac{-1}{4}$.\n\n**Answer: $-\\dfrac{1}{4}$.**"
+    },
+    {
+     "id": "1.2.14",
+     "n": 14,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to 3}\\frac{x^2-2x-3}{x^2-9}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 3}\\frac{x^2-2x-3}{x^2-9}$\n\nPlugging in gives $\\frac{9-6-3}{0} = \\frac{0}{0}$.\n\nFactor the top: numbers multiplying to $-3$, adding to $-2$: $-3$ and $1$.\n\n$$x^2-2x-3 = (x-3)(x+1)$$\n\nFactor the bottom:\n\n$$x^2-9 = (x-3)(x+3)$$\n\nCancel $(x-3)$:\n\n$$\\frac{x+1}{x+3}$$\n\nPlug in $x=3$: $\\dfrac{3+1}{3+3} = \\dfrac{4}{6} = \\dfrac{2}{3}$.\n\n**Answer: $\\dfrac{2}{3}$.**\n\n---"
+    },
+    {
+     "id": "1.2.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{x\\to 4}\\frac{x-4}{\\sqrt{x}-2}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 4}\\frac{x-4}{\\sqrt{x}-2}$\n\nPlugging in gives $\\frac{0}{0}$. There's a square root in the denominator, so we rationalize by multiplying top and bottom by the conjugate $\\sqrt{x}+2$:\n\n$$\\frac{x-4}{\\sqrt{x}-2}\\cdot\\frac{\\sqrt{x}+2}{\\sqrt{x}+2} = \\frac{(x-4)(\\sqrt{x}+2)}{(\\sqrt{x}-2)(\\sqrt{x}+2)}$$\n\nThe denominator becomes $(\\sqrt{x})^2 - 2^2 = x-4$ (this is exactly why we picked the conjugate — it clears the square root).\n\n$$\\frac{(x-4)(\\sqrt{x}+2)}{x-4}$$\n\nCancel $(x-4)$:\n\n$$\\sqrt{x}+2$$\n\nPlug in $x=4$: $\\sqrt{4}+2 = 2+2=4$.\n\n**Answer: $4$.**"
+    },
+    {
+     "id": "1.2.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{x\\to 2}\\frac{\\sqrt{x^2+12}-4}{x-2}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 2}\\frac{\\sqrt{x^2+12}-4}{x-2}$\n\nPlugging in gives $\\frac{0}{0}$. Rationalize by multiplying by the conjugate $\\sqrt{x^2+12}+4$:\n\n$$\\frac{\\sqrt{x^2+12}-4}{x-2}\\cdot\\frac{\\sqrt{x^2+12}+4}{\\sqrt{x^2+12}+4} = \\frac{(x^2+12)-16}{(x-2)\\big(\\sqrt{x^2+12}+4\\big)}$$\n\nSimplify the top: $x^2+12-16 = x^2-4 = (x-2)(x+2)$.\n\n$$\\frac{(x-2)(x+2)}{(x-2)\\big(\\sqrt{x^2+12}+4\\big)}$$\n\nCancel $(x-2)$:\n\n$$\\frac{x+2}{\\sqrt{x^2+12}+4}$$\n\nPlug in $x=2$: $\\dfrac{2+2}{\\sqrt{4+12}+4} = \\dfrac{4}{\\sqrt{16}+4} = \\dfrac{4}{4+4} = \\dfrac{4}{8} = \\dfrac{1}{2}$.\n\n**Answer: $\\dfrac{1}{2}$.**"
+    },
+    {
+     "id": "1.2.17",
+     "n": 17,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{x\\to 0}\\frac{\\sqrt{x+9}-3}{x}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 0}\\frac{\\sqrt{x+9}-3}{x}$\n\nPlugging in gives $\\frac{0}{0}$. Rationalize with the conjugate $\\sqrt{x+9}+3$:\n\n$$\\frac{\\sqrt{x+9}-3}{x}\\cdot\\frac{\\sqrt{x+9}+3}{\\sqrt{x+9}+3} = \\frac{(x+9)-9}{x\\big(\\sqrt{x+9}+3\\big)} = \\frac{x}{x\\big(\\sqrt{x+9}+3\\big)}$$\n\nCancel $x$:\n\n$$\\frac{1}{\\sqrt{x+9}+3}$$\n\nPlug in $x=0$: $\\dfrac{1}{\\sqrt{9}+3} = \\dfrac{1}{3+3} = \\dfrac{1}{6}$.\n\n**Answer: $\\dfrac{1}{6}$.**"
+    },
+    {
+     "id": "1.2.18",
+     "n": 18,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{x\\to 9}\\frac{x-9}{\\sqrt{x}-3}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 9}\\frac{x-9}{\\sqrt{x}-3}$\n\nPlugging in gives $\\frac{0}{0}$. Rationalize with the conjugate $\\sqrt{x}+3$:\n\n$$\\frac{x-9}{\\sqrt{x}-3}\\cdot\\frac{\\sqrt{x}+3}{\\sqrt{x}+3} = \\frac{(x-9)(\\sqrt{x}+3)}{x-9}$$\n\nCancel $(x-9)$:\n\n$$\\sqrt{x}+3$$\n\nPlug in $x=9$: $\\sqrt{9}+3 = 3+3=6$.\n\n**Answer: $6$.**"
+    },
+    {
+     "id": "1.2.19",
+     "n": 19,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{h\\to 0}\\frac{(2+h)^2-4}{h}$",
+     "solution": "$\\displaystyle\\lim_{h\\to 0}\\frac{(2+h)^2-4}{h}$\n\nExpand the top: $(2+h)^2 = 4+4h+h^2$, so the top becomes $4+4h+h^2-4 = 4h+h^2$.\n\n$$\\frac{4h+h^2}{h}$$\n\nCancel one $h$ from each term:\n\n$$4+h$$\n\nLet $h\\to 0$: $4+0=4$.\n\n**Answer: $4$.** (This is the exact same style of computation you used in §1.1 to find a tangent slope — that's not a coincidence; it's the same skill in a new outfit.)"
+    },
+    {
+     "id": "1.2.20",
+     "n": 20,
+     "tier": "challenge",
+     "prompt": "$\\displaystyle\\lim_{x\\to 1}\\frac{\\frac{1}{x}-1}{x-1}$",
+     "solution": "$\\displaystyle\\lim_{x\\to 1}\\frac{\\frac{1}{x}-1}{x-1}$\n\nThe top is itself a small fraction problem. Combine $\\dfrac{1}{x}-1$ into a single fraction using a common denominator of $x$:\n\n$$\\frac{1}{x}-1 = \\frac{1-x}{x}$$\n\nSo the whole expression becomes:\n\n$$\\frac{\\frac{1-x}{x}}{x-1} = \\frac{1-x}{x(x-1)}$$\n\nNotice that $1-x = -(x-1)$. Rewrite the top that way:\n\n$$\\frac{-(x-1)}{x(x-1)}$$\n\nCancel $(x-1)$:\n\n$$\\frac{-1}{x}$$\n\nPlug in $x=1$: $\\dfrac{-1}{1} = -1$.\n\n**Answer: $-1$.**\n\n---"
+    },
+    {
+     "id": "1.2.21",
+     "n": 21,
+     "tier": "applied",
+     "prompt": "A company's revenue (in dollars) from selling $x$ units is $R(x) = 5x - 0.01x^2$. Find $\\displaystyle\\lim_{x\\to 10}R(x)$, and explain what this number means about the revenue as production nears $10$ units.",
+     "solution": "$R(x) = 5x-0.01x^2$, find $\\displaystyle\\lim_{x\\to 10}R(x)$.\n\nThis is a polynomial, so direct substitution works — no tricks needed:\n\n$$R(10) = 5(10) - 0.01(10)^2 = 50 - 0.01(100) = 50-1 = 49$$\n\n**Answer: $49$.** This means that as production gets closer and closer to $10$ units, the revenue gets closer and closer to $\\$49$."
+    },
+    {
+     "id": "1.2.22",
+     "n": 22,
+     "tier": "applied",
+     "prompt": "A factory's total cost to make $x$ items is $C(x) = 200+3x$ dollars. The **average cost per item** is $\\dfrac{C(x)}{x}$. Find $\\displaystyle\\lim_{x\\to 50}\\frac{C(x)}{x}$.",
+     "solution": "$C(x)=200+3x$. Find $\\displaystyle\\lim_{x\\to 50}\\dfrac{C(x)}{x}$.\n\nAt $x=50$, the denominator is $50$, which isn't zero, so direct substitution works:\n\n$$\\frac{C(50)}{50} = \\frac{200+3(50)}{50} = \\frac{200+150}{50} = \\frac{350}{50} = 7$$\n\n**Answer: $7$.** As production nears $50$ items, the average cost per item approaches $\\$7$."
+    },
+    {
+     "id": "1.2.23",
+     "n": 23,
+     "tier": "applied",
+     "prompt": "A population model gives the number of bacteria (in thousands) after $t$ hours as $P(t) = \\dfrac{100t}{t+5}$. Find $\\displaystyle\\lim_{t\\to 5}P(t)$.",
+     "solution": "$P(t) = \\dfrac{100t}{t+5}$. Find $\\displaystyle\\lim_{t\\to 5}P(t)$.\n\nAt $t=5$, the denominator is $10$, which isn't zero, so direct substitution works:\n\n$$\\frac{100(5)}{5+5} = \\frac{500}{10} = 50$$\n\n**Answer: $50$ (thousand bacteria).** As time nears $5$ hours, the population approaches $50{,}000$ bacteria."
+    },
+    {
+     "id": "1.2.24",
+     "n": 24,
+     "tier": "applied",
+     "prompt": "An object's velocity model is $v(t) = \\dfrac{t^2-4}{t-2}$ for $t$ near $2$ (this model happens to be undefined exactly at $t=2$). Find $\\displaystyle\\lim_{t\\to 2}v(t)$, and explain what it tells us about the object's velocity as $t$ gets close to $2$, even though the formula itself breaks down right at $t=2$.",
+     "solution": "$v(t) = \\dfrac{t^2-4}{t-2}$. Find $\\displaystyle\\lim_{t\\to 2}v(t)$.\n\nPlugging in $t=2$ directly gives $\\frac{0}{0}$, confirming the model formula itself breaks down at $t=2$. But we can still find what it's approaching by factoring:\n\n$$t^2-4 = (t-2)(t+2)$$\n\n$$\\frac{(t-2)(t+2)}{t-2}$$\n\nCancel $(t-2)$:\n\n$$t+2$$\n\nPlug in $t=2$: $2+2=4$.\n\n**Answer: $4$.** Even though the formula for $v(t)$ doesn't technically produce a value right at $t=2$ (it's a $\\frac{0}{0}$ gap in the model), the velocity is clearly heading toward $4$ as $t$ gets closer and closer to $2$ from either side — so it's very reasonable to say the object's velocity is essentially $4$ at that moment."
+    }
+   ]
+  },
+  {
+   "ref": "1.3",
+   "title": "The Precise Definition of a Limit",
+   "items": [
+    {
+     "id": "1.3.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "For $f(x)=2x$ at $a=3$ (so $L=6$): if we want $f(x)$ to stay within $\\varepsilon=0.4$ of $6$, how close must $x$ be to $3$? Find a valid $\\delta$.",
+     "solution": "$f(x)=2x$, $a=3$, $L=6$, $\\varepsilon=0.4$.\n\nHere the slope is $m=2$. Using the shortcut $\\delta = \\dfrac{\\varepsilon}{|m|}$:\n\n$$\\delta = \\frac{0.4}{2} = 0.2$$\n\n**Answer: $\\delta = 0.2$.** (As long as $x$ stays within $0.2$ of $3$, $f(x)$ stays within $0.4$ of $6$.)"
+    },
+    {
+     "id": "1.3.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "For $f(x)=5x$ at $a=2$ (so $L=10$), with $\\varepsilon=1$: find a valid $\\delta$.",
+     "solution": "$f(x)=5x$, $a=2$, $L=10$, $\\varepsilon=1$.\n\nSlope $m=5$.\n\n$$\\delta = \\frac{1}{5} = 0.2$$\n\n**Answer: $\\delta = 0.2$.**"
+    },
+    {
+     "id": "1.3.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "For $f(x)=-3x$ at $a=1$ (so $L=-3$), with $\\varepsilon=0.6$: find a valid $\\delta$.",
+     "solution": "$f(x)=-3x$, $a=1$, $L=-3$, $\\varepsilon=0.6$.\n\nSlope $m=-3$, so $|m|=3$ (the sign doesn't matter here, only the size).\n\n$$\\delta = \\frac{0.6}{3} = 0.2$$\n\n**Answer: $\\delta = 0.2$.**"
+    },
+    {
+     "id": "1.3.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "For $f(x)=x+4$ at $a=5$ (so $L=9$), with $\\varepsilon=0.3$: find a valid $\\delta$.",
+     "solution": "$f(x)=x+4$, $a=5$, $L=9$, $\\varepsilon=0.3$.\n\nSlope $m=1$.\n\n$$\\delta = \\frac{0.3}{1} = 0.3$$\n\n**Answer: $\\delta = 0.3$.** (When the slope is exactly $1$, delta and epsilon always match.)"
+    },
+    {
+     "id": "1.3.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "In plain words: if two lines have the same $\\varepsilon$ requirement, but one line is steeper (larger $|m|$) than the other, which one needs the *smaller* $\\delta$? Explain why, using the \"amplifying\" idea from the Common Mistakes section.",
+     "solution": "Which line needs the smaller delta if both have the same epsilon, but one is steeper?\n\n**The steeper line (larger $|m|$) needs the *smaller* delta.** Here's why: a steep line takes a small change in $x$ and stretches it into a much bigger change in $y$ — think of it like a lever that amplifies a small push into a big swing. So to keep the *output* change small (within $\\varepsilon$), you have to control the *input* change even more tightly. That's exactly why $\\delta = \\varepsilon/|m|$ has $|m|$ on the bottom: a bigger $|m|$ makes $\\delta$ smaller."
+    },
+    {
+     "id": "1.3.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "In plain words: if someone tightens their tolerance request (makes $\\varepsilon$ smaller), does the matching $\\delta$ need to get smaller too, stay the same, or get bigger? Explain.",
+     "solution": "If someone tightens epsilon, what happens to delta?\n\n**Delta must also get smaller (or stay the same at most).** Since $\\delta = \\varepsilon/|m|$, shrinking $\\varepsilon$ directly shrinks $\\delta$ (for a fixed slope). This makes sense with the tolerance-game picture: if someone demands a narrower target band on the output, you have to squeeze your input window tighter to still guarantee landing inside it.\n\n---"
+    },
+    {
+     "id": "1.3.7",
+     "n": 7,
+     "tier": "standard",
+     "prompt": "For $f(x)=4x-1$ at $a=2$ (so $L=7$), with $\\varepsilon=0.8$: find a valid $\\delta$.",
+     "solution": "$f(x)=4x-1$, $a=2$, $L=7$, $\\varepsilon=0.8$.\n\nSlope $m=4$.\n\n$$\\delta = \\frac{0.8}{4} = 0.2$$\n\n**Answer: $\\delta = 0.2$.**"
+    },
+    {
+     "id": "1.3.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "For $f(x)=-2x+5$ at $a=3$ (so $L=-1$), with $\\varepsilon=0.5$: find a valid $\\delta$.",
+     "solution": "$f(x)=-2x+5$, $a=3$, $L=-1$, $\\varepsilon=0.5$.\n\nSlope $m=-2$, so $|m|=2$.\n\n$$\\delta = \\frac{0.5}{2} = 0.25$$\n\n**Answer: $\\delta = 0.25$.**"
+    },
+    {
+     "id": "1.3.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "For $f(x)=6x+2$ at $a=-1$ (so $L=-4$), with $\\varepsilon=1.2$: find a valid $\\delta$.",
+     "solution": "$f(x)=6x+2$, $a=-1$, $L=-4$, $\\varepsilon=1.2$.\n\nSlope $m=6$.\n\n$$\\delta = \\frac{1.2}{6} = 0.2$$\n\n**Answer: $\\delta = 0.2$.**"
+    },
+    {
+     "id": "1.3.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "For $f(x)=3x$ at $a=0$, with $\\varepsilon=0.09$: find a valid $\\delta$.",
+     "solution": "$f(x)=3x$, $a=0$, $\\varepsilon=0.09$.\n\nSlope $m=3$.\n\n$$\\delta = \\frac{0.09}{3} = 0.03$$\n\n**Answer: $\\delta = 0.03$.**"
+    },
+    {
+     "id": "1.3.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "For $f(x)=2x+1$ at $a=4$: if you use $\\delta=0.15$, what is the resulting $\\varepsilon$ this guarantees? Describe the output tolerance band in words (i.e., \"$f(x)$ stays between ___ and ___\").",
+     "solution": "$f(x)=2x+1$, $a=4$, $\\delta=0.15$. Find the resulting $\\varepsilon$.\n\nHere we work backward using $\\varepsilon = |m|\\cdot\\delta$, with slope $m=2$:\n\n$$\\varepsilon = 2 \\times 0.15 = 0.3$$\n\nFirst find $L$: $L = f(4) = 2(4)+1 = 9$.\n\n**Answer: $\\varepsilon = 0.3$.** In words: whenever $x$ stays within $0.15$ of $4$, $f(x)$ is guaranteed to stay within $0.3$ of $9$ — that is, $f(x)$ stays strictly between $8.7$ and $9.3$."
+    },
+    {
+     "id": "1.3.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "For $f(x)=-4x+3$ at $a=1$: if you use $\\delta=0.1$, what is the resulting $\\varepsilon$? Describe the output tolerance band in words.",
+     "solution": "$f(x)=-4x+3$, $a=1$, $\\delta=0.1$. Find the resulting $\\varepsilon$.\n\nSlope $m=-4$, so $|m|=4$.\n\n$$\\varepsilon = 4 \\times 0.1 = 0.4$$\n\nFind $L$: $L=f(1) = -4(1)+3 = -1$.\n\n**Answer: $\\varepsilon = 0.4$.** In words: whenever $x$ stays within $0.1$ of $1$, $f(x)$ is guaranteed to stay within $0.4$ of $-1$ — that is, $f(x)$ stays strictly between $-1.4$ and $-0.6$.\n\n---"
+    },
+    {
+     "id": "1.3.13",
+     "n": 13,
+     "tier": "challenge",
+     "prompt": "For $f(x)=7x-3$ at $a=2$, with $\\varepsilon=0.35$: find the delta given by the shortcut formula, then check your answer by plugging $x=a+\\delta$ and $x=a-\\delta$ into $f(x)$ and confirming both land exactly on the edge of the tolerance band around $L$.",
+     "solution": "$f(x)=7x-3$, $a=2$, $\\varepsilon=0.35$.\n\nSlope $m=7$.\n\n$$\\delta = \\frac{0.35}{7} = 0.05$$\n\nFind $L$: $L = f(2) = 14-3 = 11$.\n\n**Check at $x = a+\\delta = 2.05$:**\n\n$$f(2.05) = 7(2.05)-3 = 14.35-3 = 11.35$$\n\n$$|11.35 - 11| = 0.35 \\quad \\checkmark \\text{ (right at the edge of the band, as expected)}$$\n\n**Check at $x = a-\\delta = 1.95$:**\n\n$$f(1.95) = 7(1.95)-3 = 13.65-3 = 10.65$$\n\n$$|10.65-11| = 0.35 \\quad \\checkmark \\text{ (also right at the edge)}$$\n\n**Answer: $\\delta=0.05$**, and both boundary checks confirm $f(x)$ lands exactly on the edge of the $\\pm 0.35$ tolerance band around $L=11$ — any $x$ *strictly* inside the $\\delta$-window gives an $f(x)$ *strictly* inside the band, exactly as promised."
+    },
+    {
+     "id": "1.3.14",
+     "n": 14,
+     "tier": "challenge",
+     "prompt": "For $f(x)=3x+1$ at $a=2$ (so $L=7$), with $\\varepsilon=0.6$: the shortcut formula gives one delta. But suppose there's also a *separate* physical requirement that $x$ must stay within $0.15$ units of $a=2$ no matter what. What overall $\\delta$ should you use, and why?",
+     "solution": "$f(x)=3x+1$, $a=2$, $L=7$, $\\varepsilon=0.6$, with an extra requirement that $x$ stay within $0.15$ of $a$.\n\nFirst, the shortcut formula's delta: slope $m=3$,\n\n$$\\delta_{\\text{formula}} = \\frac{0.6}{3} = 0.2$$\n\nBut we're also told $x$ must stay within $0.15$ of $a=2$ for a separate reason. We have two requirements:\n- Requirement 1 (epsilon-matching): $\\delta \\le 0.2$\n- Requirement 2 (physical constraint): $\\delta \\le 0.15$\n\n**Answer: use $\\delta = 0.15$**, the *smaller* of the two. This is because whatever delta you pick has to satisfy *both* requirements at once — picking the larger one ($0.2$) would violate the physical constraint. When you have more than one condition to satisfy, you always take the tightest (smallest) delta among them, since a smaller delta automatically still satisfies any looser requirement."
+    },
+    {
+     "id": "1.3.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "For $f(x)=-5x+2$ at $a=-2$ (so $L=12$), with $\\varepsilon=0.25$: find the delta given by the shortcut formula. Then, is $\\delta=0.02$ *also* a valid choice? Explain why or why not, using the \"smaller delta\" idea from the Toolbox.",
+     "solution": "$f(x)=-5x+2$, $a=-2$, $\\varepsilon=0.25$.\n\nFirst find $L$: $L = f(-2) = -5(-2)+2 = 10+2=12$.\n\nSlope $m=-5$, so $|m|=5$.\n\n$$\\delta = \\frac{0.25}{5} = 0.05$$\n\n**Is $\\delta=0.02$ also valid?**\n\n**Yes.** Since $0.02 < 0.05$, using $\\delta=0.02$ means we're restricting $x$ to an *even tighter* window around $a=-2$ than we strictly needed to. A tighter input window can only make $f(x)$ land even closer to $L$, never farther — so any delta smaller than the one given by the shortcut formula still works. There's no single \"correct\" delta; $0.05$ is just the largest one that's guaranteed to work."
+    },
+    {
+     "id": "1.3.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "Suppose you're told that for $f(x)=2x$ near $a=3$, the output $f(x)$ must stay strictly between $5.7$ and $6.3$. Figure out what $\\varepsilon$ was being used, and then find the matching $\\delta$.",
+     "solution": "$f(x)=2x$ near $a=3$, with $f(x)$ required to stay strictly between $5.7$ and $6.3$.\n\nFirst, find $L$: since the band is symmetric, $L$ is the midpoint:\n\n$$L = \\frac{5.7+6.3}{2} = \\frac{12}{2} = 6$$\n\n(This matches $f(3) = 2(3) = 6$, as expected.)\n\nFind $\\varepsilon$: it's the distance from $L$ to either edge:\n\n$$\\varepsilon = 6.3 - 6 = 0.3 \\quad \\text{(or equivalently } 6 - 5.7 = 0.3\\text{)}$$\n\nNow find the matching $\\delta$, using slope $m=2$:\n\n$$\\delta = \\frac{0.3}{2} = 0.15$$\n\n**Answer: $\\varepsilon = 0.3$ and $\\delta = 0.15$.**\n\n---"
+    },
+    {
+     "id": "1.3.17",
+     "n": 17,
+     "tier": "applied",
+     "prompt": "A machine cuts metal rods, and the rod length (in meters) depends on a dial setting $x$ according to $f(x) = 2x$. The target length is $6$ meters (at dial setting $a=3$), and a rod is acceptable only if it's within $0.02$ m of $6$ m. How precisely must the dial be set (find $\\delta$) to guarantee an acceptable rod?",
+     "solution": "Rod-cutting: $f(x)=2x$, target $L=6$ m at $a=3$, tolerance $\\varepsilon=0.02$ m.\n\nSlope $m=2$.\n\n$$\\delta = \\frac{0.02}{2} = 0.01$$\n\n**Answer: the dial must be set within $0.01$ units of $3$** to guarantee the rod comes out within $0.02$ m of the $6$ m target."
+    },
+    {
+     "id": "1.3.18",
+     "n": 18,
+     "tier": "applied",
+     "prompt": "A thermostat's resulting room temperature (in °F) is $T(x) = 3x+65$, where $x$ is a dial setting. The target temperature is $71°F$ at dial setting $a=2$. The room must stay within $0.9°F$ of the target. How precisely must the dial be set?",
+     "solution": "Thermostat: $T(x)=3x+65$, target $L=71°F$ at $a=2$, tolerance $\\varepsilon=0.9°F$.\n\nSlope $m=3$.\n\n$$\\delta = \\frac{0.9}{3} = 0.3$$\n\n**Answer: the dial must be set within $0.3$ units of $2$** to guarantee the room stays within $0.9°F$ of $71°F$."
+    },
+    {
+     "id": "1.3.19",
+     "n": 19,
+     "tier": "applied",
+     "prompt": "A pharmacist mixes a solution whose concentration (in mg/mL) is $C(x) = 4x+10$, where $x$ is the amount (in mL) of a stock solution added. The target concentration is $26$ mg/mL at $x=4$ mL. Safety rules require the concentration to stay within $0.5$ mg/mL of the target. How precisely must $x$ be measured?",
+     "solution": "Pharmacist: $C(x)=4x+10$, target $L=26$ mg/mL at $a=4$, tolerance $\\varepsilon=0.5$ mg/mL.\n\nSlope $m=4$.\n\n$$\\delta = \\frac{0.5}{4} = 0.125$$\n\n**Answer: $x$ must be measured within $0.125$ mL of $4$ mL** to guarantee the concentration stays within $0.5$ mg/mL of $26$ mg/mL."
+    },
+    {
+     "id": "1.3.20",
+     "n": 20,
+     "tier": "applied",
+     "prompt": "A drone's altitude (in meters) is modeled by $h(x) = 10x$, where $x$ is a throttle setting near $a=5$ (giving a target altitude of $L=50$ m). To stay clear of a restricted zone, the altitude must stay within $2$ m of $50$ m. How precisely must the throttle setting be controlled?",
+     "solution": "Drone: $h(x)=10x$, target $L=50$ m at $a=5$, tolerance $\\varepsilon=2$ m.\n\nSlope $m=10$.\n\n$$\\delta = \\frac{2}{10} = 0.2$$\n\n**Answer: the throttle setting must be controlled within $0.2$ units of $5$** to guarantee the altitude stays within $2$ m of $50$ m, keeping the drone clear of the restricted zone."
+    }
+   ]
+  },
+  {
+   "ref": "1.4",
+   "title": "One-Sided Limits",
+   "items": [
+    {
+     "id": "1.4.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "$f(x) = \\begin{cases} x+1, & x<2 \\\\ 3x-1, & x\\ge 2\\end{cases}$ — Find $\\displaystyle\\lim_{x\\to 2^-}f(x)$ and $\\displaystyle\\lim_{x\\to 2^+}f(x)$. Does $\\displaystyle\\lim_{x\\to 2}f(x)$ exist?",
+     "solution": "$f(x) = \\begin{cases} x+1, & x<2 \\\\ 3x-1, & x\\ge 2\\end{cases}$\n\nFor the left-hand limit, use the piece valid for $x<2$, which is $x+1$:\n$$\\lim_{x\\to 2^-}f(x) = 2+1 = 3$$\n\nFor the right-hand limit, use the piece valid for $x\\ge 2$, which is $3x-1$:\n$$\\lim_{x\\to 2^+}f(x) = 3(2)-1 = 5$$\n\nSince $3 \\ne 5$, the two sides disagree.\n\n**Answer: left limit $=3$, right limit $=5$. The two-sided limit does NOT exist.**"
+    },
+    {
+     "id": "1.4.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "$f(x) = \\begin{cases} x^2, & x<1 \\\\ 2x-1, & x\\ge 1\\end{cases}$ — Find both one-sided limits at $x=1$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} x^2, & x<1 \\\\ 2x-1, & x\\ge 1\\end{cases}$\n\nLeft-hand limit (use $x^2$): $1^2 = 1$.\n\nRight-hand limit (use $2x-1$): $2(1)-1 = 1$.\n\nBoth sides give $1$.\n\n**Answer: left limit $=1$, right limit $=1$. The two-sided limit exists and equals $1$.**"
+    },
+    {
+     "id": "1.4.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "$f(x) = \\begin{cases} 3, & x<0 \\\\ x+3, & x\\ge 0\\end{cases}$ — Find both one-sided limits at $x=0$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} 3, & x<0 \\\\ x+3, & x\\ge 0\\end{cases}$\n\nLeft-hand limit (use the constant $3$): $3$.\n\nRight-hand limit (use $x+3$): $0+3=3$.\n\nBoth sides give $3$.\n\n**Answer: left limit $=3$, right limit $=3$. The two-sided limit exists and equals $3$.**"
+    },
+    {
+     "id": "1.4.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "$f(x) = |x|$ — Find $\\displaystyle\\lim_{x\\to 0^-}f(x)$ and $\\displaystyle\\lim_{x\\to 0^+}f(x)$. Does $\\displaystyle\\lim_{x\\to 0}f(x)$ exist?",
+     "solution": "$f(x)=|x|$\n\nFor $x<0$: $|x| = -x$, so $\\displaystyle\\lim_{x\\to 0^-} f(x) = -0 = 0$.\n\nFor $x\\ge 0$: $|x|=x$, so $\\displaystyle\\lim_{x\\to 0^+} f(x) = 0$.\n\nBoth sides give $0$.\n\n**Answer: left limit $=0$, right limit $=0$. The two-sided limit exists and equals $0$.**"
+    },
+    {
+     "id": "1.4.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "$f(x) = \\begin{cases} 5-x, & x\\le 3 \\\\ x-1, & x>3\\end{cases}$ — Find both one-sided limits at $x=3$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} 5-x, & x\\le 3 \\\\ x-1, & x>3\\end{cases}$\n\nLeft-hand limit (use $5-x$): $5-3 = 2$.\n\nRight-hand limit (use $x-1$): $3-1 = 2$.\n\nBoth sides give $2$.\n\n**Answer: left limit $=2$, right limit $=2$. The two-sided limit exists and equals $2$.**"
+    },
+    {
+     "id": "1.4.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "$f(x) = \\begin{cases} 2x, & x<-1 \\\\ x^2, & x\\ge -1\\end{cases}$ — Find both one-sided limits at $x=-1$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} 2x, & x<-1 \\\\ x^2, & x\\ge -1\\end{cases}$\n\nLeft-hand limit (use $2x$): $2(-1) = -2$.\n\nRight-hand limit (use $x^2$): $(-1)^2 = 1$.\n\nSince $-2 \\ne 1$, the two sides disagree.\n\n**Answer: left limit $=-2$, right limit $=1$. The two-sided limit does NOT exist.**\n\n---"
+    },
+    {
+     "id": "1.4.7",
+     "n": 7,
+     "tier": "standard",
+     "prompt": "$f(x) = \\begin{cases} 1-x^2, & x\\ne 1 \\\\ 2, & x=1\\end{cases}$ — Find $\\displaystyle\\lim_{x\\to 1^-}f(x)$ and $\\displaystyle\\lim_{x\\to 1^+}f(x)$. Does $\\displaystyle\\lim_{x\\to 1}f(x)$ exist, and if so, what is it?",
+     "solution": "$f(x) = \\begin{cases} 1-x^2, & x\\ne 1 \\\\ 2, & x=1\\end{cases}$\n\nThe piece $1-x^2$ applies for every $x$ near $1$ except exactly at $1$ itself — so it's the correct formula to use approaching from *both* sides.\n\n$$\\lim_{x\\to 1^-}f(x) = 1-1^2 = 0, \\qquad \\lim_{x\\to 1^+}f(x) = 1-1^2 = 0$$\n\nBoth sides give $0$.\n\n**Answer: left limit $=0$, right limit $=0$. The two-sided limit exists and equals $0$.** Notice this is different from $f(1)=2$ — but that's fine, since the limit never cares what the function's actual value is at the point itself."
+    },
+    {
+     "id": "1.4.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "$f(x) = \\begin{cases} x^2-4, & x\\ne 2 \\\\ 5, & x=2\\end{cases}$ — Find both one-sided limits at $x=2$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} x^2-4, & x\\ne 2 \\\\ 5, & x=2\\end{cases}$\n\nThe piece $x^2-4$ governs both sides near $x=2$:\n\n$$\\lim_{x\\to 2^-}f(x) = 2^2-4 = 0, \\qquad \\lim_{x\\to 2^+}f(x) = 2^2-4=0$$\n\n**Answer: left limit $=0$, right limit $=0$. The two-sided limit exists and equals $0$** (again different from $f(2)=5$, which doesn't affect the limit)."
+    },
+    {
+     "id": "1.4.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "$f(x) = \\begin{cases} \\dfrac{x^2-9}{x-3}, & x\\ne 3 \\\\ 10, & x=3\\end{cases}$ — Find $\\displaystyle\\lim_{x\\to 3}f(x)$. How does it compare to $f(3)$?",
+     "solution": "$f(x) = \\begin{cases} \\dfrac{x^2-9}{x-3}, & x\\ne 3 \\\\ 10, & x=3\\end{cases}$\n\nNear $x=3$ (from either side), we use $\\dfrac{x^2-9}{x-3}$. Factor the top: $x^2-9=(x-3)(x+3)$, so:\n\n$$\\frac{(x-3)(x+3)}{x-3} = x+3 \\quad (\\text{for } x\\ne 3)$$\n\nSo both one-sided limits are:\n\n$$\\lim_{x\\to 3}(x+3) = 3+3 = 6$$\n\n**Answer: $\\displaystyle\\lim_{x\\to 3}f(x) = 6$.** This is different from $f(3)=10$ — the limit describes what the function approaches, not what it's actually defined to equal at that one point."
+    },
+    {
+     "id": "1.4.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "$f(x) = \\begin{cases} x+2, & x<0 \\\\ x^2+2, & x\\ge 0\\end{cases}$ — Find both one-sided limits at $x=0$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} x+2, & x<0 \\\\ x^2+2, & x\\ge 0\\end{cases}$\n\nLeft-hand limit (use $x+2$): $0+2 = 2$.\n\nRight-hand limit (use $x^2+2$): $0^2+2 = 2$.\n\n**Answer: left limit $=2$, right limit $=2$. The two-sided limit exists and equals $2$.**"
+    },
+    {
+     "id": "1.4.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "$f(x) = \\begin{cases} 3x+2, & x\\le -2 \\\\ -x, & x>-2\\end{cases}$ — Find both one-sided limits at $x=-2$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\begin{cases} 3x+2, & x\\le -2 \\\\ -x, & x>-2\\end{cases}$\n\nLeft-hand limit (use $3x+2$): $3(-2)+2 = -6+2 = -4$.\n\nRight-hand limit (use $-x$): $-(-2) = 2$.\n\nSince $-4 \\ne 2$, the sides disagree.\n\n**Answer: left limit $=-4$, right limit $=2$. The two-sided limit does NOT exist.**"
+    },
+    {
+     "id": "1.4.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "$f(x) = \\dfrac{|x-3|}{x-3}$ — Find $\\displaystyle\\lim_{x\\to 3^-}f(x)$ and $\\displaystyle\\lim_{x\\to 3^+}f(x)$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\dfrac{|x-3|}{x-3}$\n\nFor $x>3$: $x-3>0$, so $|x-3| = x-3$, giving $f(x) = \\dfrac{x-3}{x-3} = 1$.\n\n$$\\lim_{x\\to 3^+}f(x) = 1$$\n\nFor $x<3$: $x-3<0$, so $|x-3| = -(x-3)$, giving $f(x) = \\dfrac{-(x-3)}{x-3} = -1$.\n\n$$\\lim_{x\\to 3^-}f(x) = -1$$\n\nSince $-1 \\ne 1$, the sides disagree.\n\n**Answer: left limit $=-1$, right limit $=1$. The two-sided limit does NOT exist.**\n\n---"
+    },
+    {
+     "id": "1.4.13",
+     "n": 13,
+     "tier": "challenge",
+     "prompt": "$f(x) = \\begin{cases} x+3, & x<-1 \\\\ x^2-1, & -1\\le x<2 \\\\ 2x-1, & x\\ge 2\\end{cases}$ — Find the one-sided limits at $x=-1$ and at $x=2$, and state whether the two-sided limit exists at each point.",
+     "solution": "$f(x) = \\begin{cases} x+3, & x<-1 \\\\ x^2-1, & -1\\le x<2 \\\\ 2x-1, & x\\ge 2\\end{cases}$\n\n**At $x=-1$:**\n\nLeft-hand limit (use $x+3$, valid for $x<-1$): $-1+3 = 2$.\n\nRight-hand limit (use $x^2-1$, valid starting at $-1$): $(-1)^2-1 = 1-1 = 0$.\n\nSince $2 \\ne 0$, the limit does **not** exist at $x=-1$.\n\n**At $x=2$:**\n\nLeft-hand limit (use $x^2-1$, valid up to but not including $2$): $2^2-1 = 3$.\n\nRight-hand limit (use $2x-1$, valid starting at $2$): $2(2)-1 = 3$.\n\nSince both sides give $3$, the limit **exists** at $x=2$ and equals $3$.\n\n**Answer: at $x=-1$ — left limit $=2$, right limit $=0$, limit DOES NOT exist. At $x=2$ — left limit $=3$, right limit $=3$, limit exists and equals $3$.**"
+    },
+    {
+     "id": "1.4.14",
+     "n": 14,
+     "tier": "challenge",
+     "prompt": "$f(x) = \\begin{cases} \\dfrac{x^2-1}{x-1}, & x<1 \\\\ 3, & x=1 \\\\ 2x, & x>1\\end{cases}$ — Find both one-sided limits at $x=1$. Does the two-sided limit exist, and how does it compare to $f(1)$?",
+     "solution": "$f(x) = \\begin{cases} \\dfrac{x^2-1}{x-1}, & x<1 \\\\ 3, & x=1 \\\\ 2x, & x>1\\end{cases}$\n\nLeft-hand limit: for $x<1$, simplify $\\dfrac{x^2-1}{x-1} = \\dfrac{(x-1)(x+1)}{x-1} = x+1$ (for $x\\ne 1$).\n\n$$\\lim_{x\\to 1^-}f(x) = 1+1 = 2$$\n\nRight-hand limit (use $2x$): $2(1) = 2$.\n\nBoth sides give $2$.\n\n**Answer: left limit $=2$, right limit $=2$. The two-sided limit exists and equals $2$.** This is different from $f(1)=3$ — again, a totally normal and expected mismatch, since the limit doesn't depend on the function's defined value at the point."
+    },
+    {
+     "id": "1.4.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "$f(x) = \\dfrac{x^2-4}{|x-2|}$ — Find $\\displaystyle\\lim_{x\\to 2^-}f(x)$ and $\\displaystyle\\lim_{x\\to 2^+}f(x)$. Does the two-sided limit exist?",
+     "solution": "$f(x) = \\dfrac{x^2-4}{|x-2|}$\n\nFactor the top for later use: $x^2-4 = (x-2)(x+2)$.\n\n**For $x>2$:** $|x-2| = x-2$, so\n\n$$f(x) = \\frac{(x-2)(x+2)}{x-2} = x+2$$\n\n$$\\lim_{x\\to 2^+}f(x) = 2+2 = 4$$\n\n**For $x<2$:** $|x-2| = -(x-2)$, so\n\n$$f(x) = \\frac{(x-2)(x+2)}{-(x-2)} = -(x+2)$$\n\n$$\\lim_{x\\to 2^-}f(x) = -(2+2) = -4$$\n\nSince $-4 \\ne 4$, the sides disagree.\n\n**Answer: left limit $=-4$, right limit $=4$. The two-sided limit does NOT exist.**"
+    },
+    {
+     "id": "1.4.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "Find the value of $k$ that makes $\\displaystyle\\lim_{x\\to 3}f(x)$ exist, where $f(x) = \\begin{cases} kx+1, & x<3 \\\\ x^2-2, & x\\ge 3\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} kx+1, & x<3 \\\\ x^2-2, & x\\ge 3\\end{cases}$, find $k$ so the limit exists at $x=3$.\n\nLeft-hand limit (use $kx+1$): $k(3)+1 = 3k+1$.\n\nRight-hand limit (use $x^2-2$): $3^2-2 = 7$.\n\nFor the limit to exist, the two sides must match:\n\n$$3k+1 = 7$$\n\n$$3k = 6$$\n\n$$k = 2$$\n\n**Answer: $k=2$.**"
+    },
+    {
+     "id": "1.4.17",
+     "n": 17,
+     "tier": "challenge",
+     "prompt": "Find the value of $c$ that makes $\\displaystyle\\lim_{x\\to 2}f(x)$ exist, where $f(x) = \\begin{cases} x^2+c, & x\\le 2 \\\\ 3x-4, & x>2\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} x^2+c, & x\\le 2 \\\\ 3x-4, & x>2\\end{cases}$, find $c$ so the limit exists at $x=2$.\n\nLeft-hand limit (use $x^2+c$): $2^2+c = 4+c$.\n\nRight-hand limit (use $3x-4$): $3(2)-4 = 2$.\n\nSet them equal:\n\n$$4+c = 2$$\n\n$$c = -2$$\n\n**Answer: $c=-2$.**\n\n---"
+    },
+    {
+     "id": "1.4.18",
+     "n": 18,
+     "tier": "applied",
+     "prompt": "A (hypothetical) simplified tax model says the tax owed, $T(x)$ dollars, on income $x$ (in thousands of dollars) is $T(x) = \\begin{cases} 0.10x, & x\\le 50 \\\\ 0.12x-1, & x>50\\end{cases}$. Find $\\displaystyle\\lim_{x\\to 50^-}T(x)$ and $\\displaystyle\\lim_{x\\to 50^+}T(x)$. Does the limit exist at the bracket boundary — in other words, is there a sudden jump in tax owed right at $x=50$?",
+     "solution": "$T(x) = \\begin{cases} 0.10x, & x\\le 50 \\\\ 0.12x-1, & x>50\\end{cases}$\n\nLeft-hand limit (use $0.10x$): $0.10(50) = 5$.\n\nRight-hand limit (use $0.12x-1$): $0.12(50)-1 = 6-1 = 5$.\n\nBoth sides give $5$.\n\n**Answer: left limit $=5$, right limit $=5$. The limit exists and equals $5$ — meaning there's no sudden jump in tax owed right at the $x=50$ bracket boundary in this model; the tax owed transitions smoothly across the boundary.**"
+    },
+    {
+     "id": "1.4.19",
+     "n": 19,
+     "tier": "applied",
+     "prompt": "A shipping company charges $C(w) = \\begin{cases} 5, & w\\le 2 \\\\ 5+2(w-2), & w>2\\end{cases}$ dollars for a package weighing $w$ pounds. Find both one-sided limits as $w\\to 2$. Is there a jump in price right at the $2$-pound mark?",
+     "solution": "$C(w) = \\begin{cases} 5, & w\\le 2 \\\\ 5+2(w-2), & w>2\\end{cases}$\n\nLeft-hand limit (use the constant $5$): $5$.\n\nRight-hand limit (use $5+2(w-2)$): $5+2(2-2) = 5+0 = 5$.\n\nBoth sides give $5$.\n\n**Answer: left limit $=5$, right limit $=5$. The limit exists and equals $5$ — there's no price jump right at the $2$-pound mark.**"
+    },
+    {
+     "id": "1.4.20",
+     "n": 20,
+     "tier": "applied",
+     "prompt": "A parking garage charges a flat rate per hour-block: $P(h) = \\begin{cases} 5, & 0<h\\le 1 \\\\ 8, & 1<h\\le 2 \\\\ 11, & 2<h\\le 3\\end{cases}$ dollars, where $h$ is hours parked. Find $\\displaystyle\\lim_{h\\to 1^-}P(h)$ and $\\displaystyle\\lim_{h\\to 1^+}P(h)$. Does the limit exist at $h=1$? What does that tell you about the price the instant you cross into a new hour?",
+     "solution": "$P(h) = \\begin{cases} 5, & 0<h\\le 1 \\\\ 8, & 1<h\\le 2 \\\\ 11, & 2<h\\le 3\\end{cases}$\n\nLeft-hand limit at $h=1$ (use the piece valid for $h\\le 1$, the constant $5$): $5$.\n\nRight-hand limit at $h=1$ (use the piece valid just above $1$, the constant $8$): $8$.\n\nSince $5 \\ne 8$, the sides disagree.\n\n**Answer: left limit $=5$, right limit $=8$. The limit does NOT exist at $h=1$.** This tells you that the moment you cross from $1$ hour into just over $1$ hour, the price suddenly jumps from \\$5 to \\$8 — a real, sudden jump, unlike the smooth tax and shipping examples above."
+    },
+    {
+     "id": "1.4.21",
+     "n": 21,
+     "tier": "applied",
+     "prompt": "A phone data plan costs $D(x) = \\begin{cases} 30, & x\\le 2 \\\\ 30+10(x-2), & x>2\\end{cases}$ dollars for $x$ gigabytes used. Find both one-sided limits as $x\\to 2$. Is there a sudden jump in cost right at the $2$ GB mark?",
+     "solution": "$D(x) = \\begin{cases} 30, & x\\le 2 \\\\ 30+10(x-2), & x>2\\end{cases}$\n\nLeft-hand limit (use the constant $30$): $30$.\n\nRight-hand limit (use $30+10(x-2)$): $30+10(2-2) = 30+0 = 30$.\n\nBoth sides give $30$.\n\n**Answer: left limit $=30$, right limit $=30$. The limit exists and equals $30$ — there's no sudden jump in cost right at the $2$ GB mark; the overage charge phases in smoothly from that point.**"
+    }
+   ]
+  },
+  {
+   "ref": "1.5",
+   "title": "Continuity",
+   "items": [
+    {
+     "id": "1.5.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = x^2+3$. Check whether $f$ is continuous at $x=2$ by verifying all three conditions.",
+     "solution": "$f(x)=x^2+3$ at $x=2$.\n\n**Check 1 — is $f(2)$ defined?** $f(2) = 4+3 = 7$. Yes, defined.\n\n**Check 2 — does the limit exist?** Polynomials are smooth everywhere, so $\\displaystyle\\lim_{x\\to 2}f(x) = 2^2+3 = 7$. Yes, exists.\n\n**Check 3 — does the limit equal $f(2)$?** $7 = 7$. Yes.\n\n**Answer: $f$ is continuous at $x=2$.** (This will always be true for polynomials — they're continuous everywhere.)"
+    },
+    {
+     "id": "1.5.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\dfrac{x+1}{x-2}$. Check continuity at $x=0$ and at $x=2$. Explain what happens at $x=2$.",
+     "solution": "$f(x) = \\dfrac{x+1}{x-2}$ at $x=0$ and $x=2$.\n\n**At $x=0$:** $f(0) = \\dfrac{1}{-2} = -\\dfrac12$, defined. Since this is a rational function and the denominator isn't zero at $x=0$, the limit equals $f(0)$ automatically.\n\n**Answer: continuous at $x=0$.**\n\n**At $x=2$:** the denominator becomes $2-2=0$, so $f(2)$ is **undefined**. Condition 1 already fails.\n\n**Answer: discontinuous at $x=2$.** Since the numerator at $x=2$ is $2+1=3 \\ne 0$, the function blows up toward $\\pm\\infty$ near $x=2$ — this is an infinite discontinuity (a vertical asymptote)."
+    },
+    {
+     "id": "1.5.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\begin{cases} x+2, & x<1 \\\\ 4, & x\\ge 1\\end{cases}$. Check continuity at $x=1$.",
+     "solution": "$f(x) = \\begin{cases} x+2, & x<1 \\\\ 4, & x\\ge 1\\end{cases}$ at $x=1$.\n\n$f(1) = 4$ (defined, using the second piece).\n\nLeft-hand limit: $1+2=3$. Right-hand limit: $4$.\n\nSince $3 \\ne 4$, the limit does not exist.\n\n**Answer: discontinuous at $x=1$** (condition 2 fails — this is a jump discontinuity)."
+    },
+    {
+     "id": "1.5.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\begin{cases} x^2, & x\\le 2 \\\\ 2x, & x>2\\end{cases}$. Check continuity at $x=2$.",
+     "solution": "$f(x) = \\begin{cases} x^2, & x\\le 2 \\\\ 2x, & x>2\\end{cases}$ at $x=2$.\n\n$f(2) = 2^2 = 4$ (defined, using the first piece since $x\\le 2$ includes $2$).\n\nLeft-hand limit: $2^2=4$. Right-hand limit: $2(2)=4$. Both match, so the limit exists and equals $4$.\n\nCompare to $f(2)=4$: they match.\n\n**Answer: $f$ is continuous at $x=2$.** All three conditions check out."
+    },
+    {
+     "id": "1.5.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\begin{cases} 7, & x=0 \\\\ x^2+3, & x\\ne 0\\end{cases}$. Check continuity at $x=0$, and describe what kind of discontinuity (if any) occurs.",
+     "solution": "$f(x) = \\begin{cases} 7, & x=0 \\\\ x^2+3, & x\\ne 0\\end{cases}$ at $x=0$.\n\n$f(0) = 7$, defined.\n\nThe limit uses the \"$x\\ne 0$\" piece (valid on both sides near $0$): $\\displaystyle\\lim_{x\\to 0}(x^2+3) = 0+3=3$. So the limit exists and equals $3$.\n\nCompare to $f(0)=7$: **they do not match** ($3\\ne7$).\n\n**Answer: discontinuous at $x=0$.** This is a **removable discontinuity** — the limit exists just fine (it's heading toward $3$), but the function has been deliberately defined to the \"wrong\" value ($7$) right at that point. Redefining $f(0)=3$ would patch the hole completely."
+    },
+    {
+     "id": "1.5.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "Let $f(x) = \\dfrac{1}{x-3}$. Check continuity at $x=3$, and describe what kind of discontinuity (if any) occurs.",
+     "solution": "$f(x) = \\dfrac{1}{x-3}$ at $x=3$.\n\n$f(3)$ would require dividing by $0$, so $f(3)$ is **undefined**.\n\n**Answer: discontinuous at $x=3$.** Since the numerator ($1$) never becomes zero, the function shoots off toward $\\pm\\infty$ as $x\\to 3$ — this is an **infinite discontinuity** (a vertical asymptote at $x=3$).\n\n---"
+    },
+    {
+     "id": "1.5.7",
+     "n": 7,
+     "tier": "standard",
+     "prompt": "Find the value of $a$ that makes $f$ continuous at $x=3$, where $f(x) = \\begin{cases} x^2-2x+3, & x<3 \\\\ 2ax, & x\\ge 3\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} x^2-2x+3, & x<3 \\\\ 2ax, & x\\ge 3\\end{cases}$, find $a$ for continuity at $x=3$.\n\nLeft-hand limit (use $x^2-2x+3$): $3^2-2(3)+3 = 9-6+3 = 6$.\n\nRight-hand value/limit (use $2ax$): $2a(3) = 6a$.\n\nSet them equal for continuity:\n\n$$6a = 6$$\n\n$$a = 1$$\n\n**Answer: $a=1$.**"
+    },
+    {
+     "id": "1.5.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "Find the value of $k$ that makes $f$ continuous at $x=2$, where $f(x) = \\begin{cases} kx+1, & x<2 \\\\ x^2-1, & x\\ge 2\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} kx+1, & x<2 \\\\ x^2-1, & x\\ge 2\\end{cases}$, find $k$ for continuity at $x=2$.\n\nLeft-hand limit: $k(2)+1 = 2k+1$.\n\nRight-hand value: $2^2-1 = 3$.\n\nSet equal:\n\n$$2k+1 = 3$$\n\n$$2k = 2$$\n\n$$k = 1$$\n\n**Answer: $k=1$.**"
+    },
+    {
+     "id": "1.5.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "Find the value of $b$ that makes $f$ continuous at $x=1$, where $f(x) = \\begin{cases} 3x+b, & x\\le 1 \\\\ x^2+2, & x>1\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} 3x+b, & x\\le 1 \\\\ x^2+2, & x>1\\end{cases}$, find $b$ for continuity at $x=1$.\n\nLeft-hand value (using the piece that includes $x=1$): $3(1)+b = 3+b$.\n\nRight-hand limit: $1^2+2 = 3$.\n\nSet equal:\n\n$$3+b = 3$$\n\n$$b = 0$$\n\n**Answer: $b=0$.**"
+    },
+    {
+     "id": "1.5.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "Find the value of $m$ that makes $f$ continuous at $x=-1$, where $f(x) = \\begin{cases} x^2+4, & x<-1 \\\\ mx-3, & x\\ge -1\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} x^2+4, & x<-1 \\\\ mx-3, & x\\ge -1\\end{cases}$, find $m$ for continuity at $x=-1$.\n\nLeft-hand limit: $(-1)^2+4 = 1+4 = 5$.\n\nRight-hand value: $m(-1)-3 = -m-3$.\n\nSet equal:\n\n$$-m-3 = 5$$\n\n$$-m = 8$$\n\n$$m = -8$$\n\n**Answer: $m=-8$.**"
+    },
+    {
+     "id": "1.5.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "Find the value of $a$ that makes $f$ continuous at $x=2$, where $f(x) = \\begin{cases} ax^2, & x\\le 2 \\\\ 4x-4, & x>2\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} ax^2, & x\\le 2 \\\\ 4x-4, & x>2\\end{cases}$, find $a$ for continuity at $x=2$.\n\nLeft-hand value: $a(2)^2 = 4a$.\n\nRight-hand limit: $4(2)-4 = 8-4 = 4$.\n\nSet equal:\n\n$$4a = 4$$\n\n$$a = 1$$\n\n**Answer: $a=1$.**"
+    },
+    {
+     "id": "1.5.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "Find the value of $c$ that makes $f$ continuous at $x=1$, where $f(x) = \\begin{cases} x^3, & x<1 \\\\ c-x, & x\\ge 1\\end{cases}$.",
+     "solution": "$f(x) = \\begin{cases} x^3, & x<1 \\\\ c-x, & x\\ge 1\\end{cases}$, find $c$ for continuity at $x=1$.\n\nLeft-hand limit: $1^3 = 1$.\n\nRight-hand value: $c-1$.\n\nSet equal:\n\n$$c-1 = 1$$\n\n$$c = 2$$\n\n**Answer: $c=2$.**\n\n---"
+    },
+    {
+     "id": "1.5.13",
+     "n": 13,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\begin{cases} ax+b, & x<0 \\\\ x^2+1, & 0\\le x\\le 2 \\\\ 3x-1, & x>2\\end{cases}$. You're also told that $f(-2)=7$. Find $a$ and $b$ so that $f$ is continuous at $x=0$ and satisfies $f(-2)=7$. (As a bonus check, verify what happens at $x=2$.)",
+     "solution": "$f(x) = \\begin{cases} ax+b, & x<0 \\\\ x^2+1, & 0\\le x\\le 2 \\\\ 3x-1, & x>2\\end{cases}$, with $f(-2)=7$. Find $a$ and $b$.\n\n**Step 1 — continuity at $x=0$:**\n\nLeft-hand limit (use $ax+b$): $a(0)+b = b$.\n\nValue at $x=0$ (use the middle piece, since $0\\le x\\le 2$ includes $0$): $0^2+1 = 1$.\n\nSet equal: $b = 1$.\n\n**Step 2 — use the extra condition $f(-2)=7$:**\n\nSince $-2<0$, we use the first piece: $f(-2) = a(-2)+b = -2a+b$.\n\nPlug in $b=1$:\n\n$$-2a+1 = 7$$\n\n$$-2a = 6$$\n\n$$a = -3$$\n\n**Bonus check at $x=2$:** middle piece value: $2^2+1=5$. Right-hand limit (use $3x-1$): $3(2)-1=5$. They already match — this breakpoint takes care of itself no matter what $a$ and $b$ are, since neither piece there involves $a$ or $b$.\n\n**Answer: $a=-3$, $b=1$.**"
+    },
+    {
+     "id": "1.5.14",
+     "n": 14,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\begin{cases} \\dfrac{x^2-9}{x-3}, & x\\ne 3 \\\\ k, & x=3\\end{cases}$. Find the value of $k$ that makes $f$ continuous at $x=3$.",
+     "solution": "$f(x) = \\begin{cases} \\dfrac{x^2-9}{x-3}, & x\\ne 3 \\\\ k, & x=3\\end{cases}$, find $k$ for continuity at $x=3$.\n\nThe limit (approaching from either side, using the \"$x\\ne3$\" piece) requires factoring first, since plugging in $x=3$ gives $\\frac{0}{0}$:\n\n$$\\frac{x^2-9}{x-3} = \\frac{(x-3)(x+3)}{x-3} = x+3$$\n\n$$\\lim_{x\\to 3}(x+3) = 6$$\n\nFor continuity, we need $f(3)=k$ to match this limit:\n\n$$k = 6$$\n\n**Answer: $k=6$.** This patches the hole that was sitting at $x=3$."
+    },
+    {
+     "id": "1.5.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\begin{cases} \\sqrt{x+4}, & x\\le 0 \\\\ 2x+a, & x>0\\end{cases}$. Find the value of $a$ that makes $f$ continuous at $x=0$.",
+     "solution": "$f(x) = \\begin{cases} \\sqrt{x+4}, & x\\le 0 \\\\ 2x+a, & x>0\\end{cases}$, find $a$ for continuity at $x=0$.\n\nLeft-hand value (use $\\sqrt{x+4}$, since $x\\le 0$ includes $0$): $\\sqrt{0+4} = \\sqrt{4} = 2$.\n\nRight-hand limit (use $2x+a$): $2(0)+a = a$.\n\nSet equal:\n\n$$a = 2$$\n\n**Answer: $a=2$.**"
+    },
+    {
+     "id": "1.5.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\begin{cases} x+1, & x<2 \\\\ 5, & x=2 \\\\ x+3, & x>2\\end{cases}$. Determine whether $f$ is continuous at $x=2$. If not, classify the discontinuity (removable, jump, or infinite) and explain your reasoning.",
+     "solution": "$f(x) = \\begin{cases} x+1, & x<2 \\\\ 5, & x=2 \\\\ x+3, & x>2\\end{cases}$, continuity at $x=2$?\n\n$f(2) = 5$, defined.\n\nLeft-hand limit: $2+1 = 3$.\n\nRight-hand limit: $2+3 = 5$.\n\nSince $3 \\ne 5$, the two one-sided limits disagree, so the overall limit **does not exist**.\n\n**Answer: $f$ is discontinuous at $x=2$.** This is a **jump discontinuity** — even though $f(2)=5$ happens to match the right-hand side, the left and right limits themselves don't agree with each other, so there's no way to patch this by simply redefining the single point $f(2)$. The two sides are genuinely heading toward different heights."
+    },
+    {
+     "id": "1.5.17",
+     "n": 17,
+     "tier": "challenge",
+     "prompt": "Let $f(x) = \\dfrac{1}{(x-4)^2}$. Determine whether $f$ is continuous at $x=4$. If not, classify the discontinuity and explain your reasoning.",
+     "solution": "$f(x) = \\dfrac{1}{(x-4)^2}$, continuity at $x=4$?\n\n$f(4)$ would require dividing by $0$, so it's **undefined** — condition 1 already fails.\n\n**Answer: $f$ is discontinuous at $x=4$.** Since $(x-4)^2$ is always positive and shrinks toward $0$ from both sides as $x\\to 4$, the fraction $\\frac{1}{(x-4)^2}$ grows without bound toward $+\\infty$ on both sides. This is an **infinite discontinuity** (a vertical asymptote at $x=4$).\n\n---"
+    },
+    {
+     "id": "1.5.18",
+     "n": 18,
+     "tier": "applied",
+     "prompt": "A simplified tax model gives tax owed (in dollars) as $T(x) = \\begin{cases} 0.10x, & x\\le 50 \\\\ 0.12x-k, & x>50\\end{cases}$, where $x$ is income in thousands. Find the value of $k$ that avoids a sudden jump in tax owed at $x=50$ (i.e., makes $T$ continuous there).",
+     "solution": "$T(x) = \\begin{cases} 0.10x, & x\\le 50 \\\\ 0.12x-k, & x>50\\end{cases}$, find $k$ for continuity at $x=50$.\n\nLeft-hand value: $0.10(50) = 5$.\n\nRight-hand limit: $0.12(50)-k = 6-k$.\n\nSet equal:\n\n$$6-k = 5$$\n\n$$k = 1$$\n\n**Answer: $k=1$.** With this value, the tax owed transitions smoothly across the $x=50$ bracket boundary with no sudden jump."
+    },
+    {
+     "id": "1.5.19",
+     "n": 19,
+     "tier": "applied",
+     "prompt": "A shipping company's cost model is $C(w) = \\begin{cases} 5+2w, & w\\le 3 \\\\ b+3w, & w>3\\end{cases}$ dollars, where $w$ is weight in pounds. Find the value of $b$ that makes the price transition smoothly (continuously) at $w=3$.",
+     "solution": "$C(w) = \\begin{cases} 5+2w, & w\\le 3 \\\\ b+3w, & w>3\\end{cases}$, find $b$ for continuity at $w=3$.\n\nLeft-hand value: $5+2(3) = 5+6=11$.\n\nRight-hand limit: $b+3(3) = b+9$.\n\nSet equal:\n\n$$b+9 = 11$$\n\n$$b = 2$$\n\n**Answer: $b=2$.** With this value, the shipping price transitions smoothly at $w=3$ pounds."
+    },
+    {
+     "id": "1.5.20",
+     "n": 20,
+     "tier": "applied",
+     "prompt": "A phone data plan costs $D(x) = \\begin{cases} 20, & x\\le 1 \\\\ 20+m(x-1), & x>1\\end{cases}$ dollars for $x$ gigabytes. You're told that using $5$ GB costs $\\$52$. Find $m$. (As a bonus, notice that continuity at $x=1$ holds automatically no matter what $m$ is — explain why, by checking what the right-hand piece gives at $x=1$.)",
+     "solution": "$D(x) = \\begin{cases} 20, & x\\le 1 \\\\ 20+m(x-1), & x>1\\end{cases}$, with $D(5)=52$, find $m$.\n\nPlug $x=5$ into the second piece (since $5>1$):\n\n$$20+m(5-1) = 52$$\n\n$$20+4m = 52$$\n\n$$4m = 32$$\n\n$$m = 8$$\n\n**Answer: $m=8$.**\n\n**Bonus explanation:** continuity at $x=1$ holds automatically for *any* value of $m$, because plugging $x=1$ into the right-hand piece gives $20+m(1-1) = 20+m(0) = 20$ — the $m$ term always vanishes at exactly $x=1$, so the right side always matches the left side's value of $20$ no matter what $m$ turns out to be. That's why we needed a separate piece of information (the cost at $5$ GB) to pin down $m$."
+    },
+    {
+     "id": "1.5.21",
+     "n": 21,
+     "tier": "applied",
+     "prompt": "A temperature model is $T(t) = \\begin{cases} 2t+50, & t\\le 4 \\\\ -3t+c, & t>4\\end{cases}$ degrees, where $t$ is hours after midnight. Find the value of $c$ that avoids a sudden jump in temperature at $t=4$.",
+     "solution": "$T(t) = \\begin{cases} 2t+50, & t\\le 4 \\\\ -3t+c, & t>4\\end{cases}$, find $c$ for continuity at $t=4$.\n\nLeft-hand value: $2(4)+50 = 8+50 = 58$.\n\nRight-hand limit: $-3(4)+c = -12+c$.\n\nSet equal:\n\n$$-12+c = 58$$\n\n$$c = 70$$\n\n**Answer: $c=70$.** With this value, the temperature model transitions smoothly at $t=4$ hours with no sudden jump."
+    }
+   ]
+  },
+  {
+   "ref": "1.6",
+   "title": "Limits Involving Infinity and Asymptotes",
+   "items": [
+    {
+     "id": "1.6.1",
+     "n": 1,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{3x+5}{2x-1}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{3x+5}{2x-1}$\n\nTop degree $=1$, bottom degree $=1$ — same degree. Divide every term by $x$ (the highest power in the denominator):\n\n$$\\frac{3+\\frac{5}{x}}{2-\\frac{1}{x}}$$\n\nAs $x\\to\\infty$, $\\frac{5}{x}\\to 0$ and $\\frac{1}{x}\\to 0$:\n\n$$\\frac{3+0}{2-0} = \\frac{3}{2}$$\n\n**Answer: $\\dfrac{3}{2}$.**"
+    },
+    {
+     "id": "1.6.2",
+     "n": 2,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{2x+1}{x^2+3}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{2x+1}{x^2+3}$\n\nTop degree $=1$, bottom degree $=2$ — top is smaller. By the rule, the limit is $0$.\n\n(To see it: divide by $x^2$: $\\dfrac{\\frac{2}{x}+\\frac{1}{x^2}}{1+\\frac{3}{x^2}} \\to \\dfrac{0+0}{1+0} = 0$.)\n\n**Answer: $0$.**"
+    },
+    {
+     "id": "1.6.3",
+     "n": 3,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3+2}{5x^2-1}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3+2}{5x^2-1}$\n\nTop degree $=3$, bottom degree $=2$ — top is bigger. By the rule, this limit is $+\\infty$ (grows without bound).\n\n(To see it: divide by $x^2$: $\\dfrac{x+\\frac{2}{x^2}}{5-\\frac{1}{x^2}} \\to \\dfrac{x+0}{5-0}$, and as $x\\to\\infty$ this keeps growing forever.)\n\n**Answer: $+\\infty$ (no finite limit — the fraction grows without bound).**"
+    },
+    {
+     "id": "1.6.4",
+     "n": 4,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to-\\infty}\\frac{4x^2-3}{2x^2+7}$",
+     "solution": "$\\displaystyle\\lim_{x\\to-\\infty}\\frac{4x^2-3}{2x^2+7}$\n\nSame degree top and bottom ($2$ and $2$). Divide by $x^2$:\n\n$$\\frac{4-\\frac{3}{x^2}}{2+\\frac{7}{x^2}} \\to \\frac{4-0}{2+0} = \\frac{4}{2}=2$$\n\n(Since $x^2$ is positive whether $x\\to\\infty$ or $x\\to-\\infty$, the answer is the same either direction.)\n\n**Answer: $2$.**"
+    },
+    {
+     "id": "1.6.5",
+     "n": 5,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{5}{x^3}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{5}{x^3}$\n\nThis is exactly the basic pattern $\\dfrac{c}{x^n}\\to 0$.\n\n**Answer: $0$.**"
+    },
+    {
+     "id": "1.6.6",
+     "n": 6,
+     "tier": "warmup",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^2-2x+1}{3x^2+4x-5}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^2-2x+1}{3x^2+4x-5}$\n\nSame degree top and bottom ($2$ and $2$). Divide by $x^2$:\n\n$$\\frac{7-\\frac{2}{x}+\\frac{1}{x^2}}{3+\\frac{4}{x}-\\frac{5}{x^2}} \\to \\frac{7-0+0}{3+0-0} = \\frac{7}{3}$$\n\n**Answer: $\\dfrac{7}{3}$.**\n\n---"
+    },
+    {
+     "id": "1.6.7",
+     "n": 7,
+     "tier": "standard",
+     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{5x^2+8x-3}{3x^2+2}$",
+     "solution": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{5x^2+8x-3}{3x^2+2}$\n\nSame degree top and bottom ($2$ and $2$). Divide by $x^2$:\n\n$$\\frac{5+\\frac{8}{x}-\\frac{3}{x^2}}{3+\\frac{2}{x^2}} \\to \\frac{5+0-0}{3+0} = \\frac{5}{3}$$\n\n**Answer: $\\dfrac{5}{3}$.**"
+    },
+    {
+     "id": "1.6.8",
+     "n": 8,
+     "tier": "standard",
+     "prompt": "Find the horizontal asymptote of $y=\\dfrac{2x-7}{x+4}$.",
+     "solution": "$y=\\dfrac{2x-7}{x+4}$\n\nTop degree $=1$, bottom degree $=1$ — same degree, so the horizontal asymptote is the ratio of leading coefficients:\n\n$$y = \\frac{2}{1} = 2$$\n\n**Answer: horizontal asymptote $y=2$.**"
+    },
+    {
+     "id": "1.6.9",
+     "n": 9,
+     "tier": "standard",
+     "prompt": "Find the horizontal asymptote of $y=\\dfrac{3x^2+1}{x^2-5x+6}$.",
+     "solution": "$y=\\dfrac{3x^2+1}{x^2-5x+6}$\n\nSame degree ($2$ and $2$), so the horizontal asymptote is the ratio of leading coefficients:\n\n$$y = \\frac{3}{1} = 3$$\n\n**Answer: horizontal asymptote $y=3$.**"
+    },
+    {
+     "id": "1.6.10",
+     "n": 10,
+     "tier": "standard",
+     "prompt": "Find the horizontal asymptote of $y=\\dfrac{x+2}{x^2-9}$.",
+     "solution": "$y=\\dfrac{x+2}{x^2-9}$\n\nTop degree $=1$, bottom degree $=2$ — top is smaller, so the horizontal asymptote is $y=0$.\n\n**Answer: horizontal asymptote $y=0$.**"
+    },
+    {
+     "id": "1.6.11",
+     "n": 11,
+     "tier": "standard",
+     "prompt": "Find the vertical asymptote(s) of $y=\\dfrac{x+1}{x^2-4}$.",
+     "solution": "$y=\\dfrac{x+1}{x^2-4}$\n\nFactor the denominator: $x^2-4 = (x-2)(x+2)$, which is zero at $x=2$ and $x=-2$.\n\nCheck the numerator at these values: at $x=2$, $2+1=3\\ne 0$; at $x=-2$, $-2+1=-1\\ne0$. Neither factor cancels.\n\n**Answer: vertical asymptotes at $x=2$ and $x=-2$.**"
+    },
+    {
+     "id": "1.6.12",
+     "n": 12,
+     "tier": "standard",
+     "prompt": "Find the vertical asymptote(s) of $y=\\dfrac{2x}{x^2+x-6}$.",
+     "solution": "$y=\\dfrac{2x}{x^2+x-6}$\n\nFactor the denominator: we need two numbers multiplying to $-6$ and adding to $1$: those are $3$ and $-2$.\n\n$$x^2+x-6 = (x+3)(x-2)$$\n\nZero at $x=-3$ and $x=2$.\n\nCheck the numerator ($2x$) at these values: at $x=-3$, $2(-3)=-6\\ne0$; at $x=2$, $2(2)=4\\ne0$. Neither cancels.\n\n**Answer: vertical asymptotes at $x=-3$ and $x=2$.**\n\n---"
+    },
+    {
+     "id": "1.6.13",
+     "n": 13,
+     "tier": "challenge",
+     "prompt": "Find the horizontal **and** vertical asymptotes of $y = \\dfrac{(x+3)(x+1)}{(x+2)(x-1)}$.",
+     "solution": "$y = \\dfrac{(x+3)(x+1)}{(x+2)(x-1)}$\n\n**Horizontal asymptote:** if you multiplied everything out, the top would be $x^2+\\dots$ and the bottom would be $x^2+\\dots$ — same degree ($2$ and $2$), both with leading coefficient $1$. So the horizontal asymptote is:\n\n$$y = \\frac{1}{1} = 1$$\n\n**Vertical asymptotes:** the denominator is zero at $x=-2$ and $x=1$. Check whether either factor also makes the numerator zero:\n\nAt $x=-2$: numerator $=(-2+3)(-2+1) = (1)(-1) = -1 \\ne 0$.\n\nAt $x=1$: numerator $=(1+3)(1+1) = (4)(2) = 8 \\ne 0$.\n\nNeither cancels.\n\n**Answer: horizontal asymptote $y=1$; vertical asymptotes at $x=-2$ and $x=1$.**"
+    },
+    {
+     "id": "1.6.14",
+     "n": 14,
+     "tier": "challenge",
+     "prompt": "Find the horizontal and vertical asymptotes of $y = \\dfrac{(x-2)(x+5)}{(x-2)(x+3)}$. (Watch carefully for a factor that cancels!)",
+     "solution": "$y = \\dfrac{(x-2)(x+5)}{(x-2)(x+3)}$\n\nNotice the factor $(x-2)$ appears in **both** the top and bottom — it cancels!\n\n$$y = \\frac{(x-2)(x+5)}{(x-2)(x+3)} = \\frac{x+5}{x+3} \\quad (\\text{for } x\\ne 2)$$\n\n**Vertical asymptote:** using the simplified form, the denominator is zero at $x=-3$. Check the (simplified) numerator there: $-3+5=2\\ne0$, so this is a genuine vertical asymptote.\n\nAt $x=2$: since the $(x-2)$ factor canceled, this is **not** a vertical asymptote — it's a **removable hole** in the graph instead.\n\n**Horizontal asymptote:** using the simplified form $\\dfrac{x+5}{x+3}$, same degree top and bottom, leading coefficients both $1$:\n\n$$y = 1$$\n\n**Answer: horizontal asymptote $y=1$; vertical asymptote at $x=-3$; removable hole (not an asymptote) at $x=2$.**"
+    },
+    {
+     "id": "1.6.15",
+     "n": 15,
+     "tier": "challenge",
+     "prompt": "Find the horizontal and vertical asymptotes of $y = \\dfrac{x^2-1}{x^2-4x+3}$. (Factor everything first.)",
+     "solution": "$y = \\dfrac{x^2-1}{x^2-4x+3}$\n\nFactor the top (difference of squares): $x^2-1=(x-1)(x+1)$.\n\nFactor the bottom: numbers multiplying to $3$, adding to $-4$: $-1$ and $-3$.\n\n$$x^2-4x+3 = (x-1)(x-3)$$\n\nThe factor $(x-1)$ cancels:\n\n$$y = \\frac{(x-1)(x+1)}{(x-1)(x-3)} = \\frac{x+1}{x-3} \\quad (\\text{for } x\\ne 1)$$\n\n**Vertical asymptote:** using the simplified form, the denominator is zero at $x=3$. Check the numerator there: $3+1=4\\ne 0$, so this is genuine.\n\nAt $x=1$: since $(x-1)$ canceled, this is a **removable hole**, not a vertical asymptote.\n\n**Horizontal asymptote:** simplified form $\\dfrac{x+1}{x-3}$, same degree, leading coefficients both $1$:\n\n$$y=1$$\n\n**Answer: horizontal asymptote $y=1$; vertical asymptote at $x=3$; removable hole (not an asymptote) at $x=1$.**"
+    },
+    {
+     "id": "1.6.16",
+     "n": 16,
+     "tier": "challenge",
+     "prompt": "Find the horizontal and vertical asymptotes of $y = \\dfrac{3x^2-12}{x^2-x-2}$.",
+     "solution": "$y = \\dfrac{3x^2-12}{x^2-x-2}$\n\nFactor the top: $3x^2-12 = 3(x^2-4) = 3(x-2)(x+2)$.\n\nFactor the bottom: numbers multiplying to $-2$, adding to $-1$: $-2$ and $1$.\n\n$$x^2-x-2 = (x-2)(x+1)$$\n\nThe factor $(x-2)$ cancels:\n\n$$y = \\frac{3(x-2)(x+2)}{(x-2)(x+1)} = \\frac{3(x+2)}{x+1} \\quad (\\text{for } x\\ne 2)$$\n\n**Vertical asymptote:** using the simplified form, the denominator is zero at $x=-1$. Check the numerator there: $3(-1+2) = 3(1) = 3 \\ne 0$, so this is genuine.\n\nAt $x=2$: since $(x-2)$ canceled, this is a **removable hole**, not a vertical asymptote.\n\n**Horizontal asymptote:** from the original (or simplified) form, comparing leading coefficients of the top ($3$) and bottom ($1$) of the same degree:\n\n$$y = 3$$\n\n**Answer: horizontal asymptote $y=3$; vertical asymptote at $x=-1$; removable hole (not an asymptote) at $x=2$.**"
+    },
+    {
+     "id": "1.6.17",
+     "n": 17,
+     "tier": "challenge",
+     "prompt": "For $y = \\dfrac{1}{x-2}$: find the horizontal asymptote, and separately determine whether the graph shoots toward $+\\infty$ or $-\\infty$ as $x\\to 2^-$ and as $x\\to 2^+$.",
+     "solution": "$y = \\dfrac{1}{x-2}$\n\n**Horizontal asymptote:** top degree $0$ (a constant), bottom degree $1$ — top is smaller, so:\n\n$$y = 0$$\n\n**As $x\\to 2^+$** (values just a bit bigger than $2$, like $2.001$): $x-2$ is a very small **positive** number, so $\\dfrac{1}{x-2}$ is a very large **positive** number.\n\n$$\\lim_{x\\to 2^+}\\frac{1}{x-2} = +\\infty$$\n\n**As $x\\to 2^-$** (values just a bit smaller than $2$, like $1.999$): $x-2$ is a very small **negative** number, so $\\dfrac{1}{x-2}$ is a very large **negative** number.\n\n$$\\lim_{x\\to 2^-}\\frac{1}{x-2} = -\\infty$$\n\n**Answer: horizontal asymptote $y=0$. As $x\\to2^+$, $y\\to+\\infty$; as $x\\to2^-$, $y\\to-\\infty$.** (There's a vertical asymptote at $x=2$, and the graph shoots off in opposite directions on each side of it.)\n\n---"
+    },
+    {
+     "id": "1.6.18",
+     "n": 18,
+     "tier": "applied",
+     "prompt": "A company's average cost per unit (in dollars) when producing $x$ units is $C(x) = \\dfrac{500+3x}{x}$. Find the horizontal asymptote as $x\\to\\infty$, and explain what it means about the long-run average cost per unit as production grows very large.",
+     "solution": "$C(x) = \\dfrac{500+3x}{x}$, find the horizontal asymptote as $x\\to\\infty$.\n\nRewrite it as two separate fractions: $C(x) = \\dfrac{500}{x} + 3$.\n\nAs $x\\to\\infty$, $\\dfrac{500}{x}\\to 0$, so:\n\n$$C(x) \\to 0+3 = 3$$\n\n**Answer: horizontal asymptote $y=3$.** This means that as the company produces more and more units, the average cost per unit gets closer and closer to $\\$3$ — the fixed cost of $\\$500$ gets \"spread out\" over so many units that it barely affects the per-unit average anymore, leaving just the $\\$3$ variable cost per unit."
+    },
+    {
+     "id": "1.6.19",
+     "n": 19,
+     "tier": "applied",
+     "prompt": "A drug's concentration in the bloodstream (mg/L) $t$ hours after being administered is modeled by $C(t) = \\dfrac{50t}{t^2+25}$. Find the horizontal asymptote as $t\\to\\infty$, and explain what it means about the drug concentration over a very long time.",
+     "solution": "$C(t) = \\dfrac{50t}{t^2+25}$, find the horizontal asymptote as $t\\to\\infty$.\n\nTop degree $=1$, bottom degree $=2$ — top is smaller, so the limit is $0$.\n\n**Answer: horizontal asymptote $y=0$.** This means that over a very long time, the drug concentration in the bloodstream approaches $0$ — the body eventually clears the drug out almost entirely."
+    },
+    {
+     "id": "1.6.20",
+     "n": 20,
+     "tier": "applied",
+     "prompt": "A city's population (in thousands) $t$ years from now is modeled by $P(t) = \\dfrac{200t+500}{t+2}$. Find the horizontal asymptote as $t\\to\\infty$, and explain what it suggests about the population in the very long run.",
+     "solution": "$P(t) = \\dfrac{200t+500}{t+2}$, find the horizontal asymptote as $t\\to\\infty$.\n\nSame degree top and bottom ($1$ and $1$), so the horizontal asymptote is the ratio of leading coefficients:\n\n$$y = \\frac{200}{1} = 200$$\n\n**Answer: horizontal asymptote $y=200$.** This suggests that in the very long run, the city's population levels off and approaches about $200$ thousand people, rather than growing forever."
+    },
+    {
+     "id": "1.6.21",
+     "n": 21,
+     "tier": "applied",
+     "prompt": "A factory's production rate (units per hour) as a function of available resources $x$ is modeled by $R(x) = \\dfrac{10x}{x+5}$. Find the horizontal asymptote as $x\\to\\infty$, and explain what it means about the maximum achievable production rate.",
+     "solution": "$R(x) = \\dfrac{10x}{x+5}$, find the horizontal asymptote as $x\\to\\infty$.\n\nSame degree top and bottom ($1$ and $1$):\n\n$$y = \\frac{10}{1} = 10$$\n\n**Answer: horizontal asymptote $y=10$.** This means that no matter how many resources the factory has available, the production rate can never exceed (and gets closer and closer to) $10$ units per hour — there's a built-in ceiling on how fast the factory can produce, even with unlimited resources."
+    }
+   ]
+  }
+ ]
+}

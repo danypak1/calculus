@@ -1,0 +1,47 @@
+{
+  "module": "ch01",
+  "sims": [
+    {
+      "id": "limit-at-a-hole",
+      "title": "The limit at a point the function never reaches",
+      "type": "limitHole",
+      "params": [
+        {
+          "key": "x",
+          "label": "x",
+          "min": 0,
+          "max": 4,
+          "step": 0.01,
+          "value": 0
+        }
+      ],
+      "intro": "This is $f(x)=\\dfrac{x^2-4}{x-2}$. Cancel the factor $(x-2)$ and you get $x+2$ everywhere except at $x=2$ itself, where the formula collapses to $\\tfrac{0}{0}$ and the graph has a hole. Drag the slider toward $2$ from either side and watch what $f(x)$ does on the way in.",
+      "watch": [
+        "Coming in from the left and coming in from the right, $f(x)$ closes in on the same number, $4$. That agreement is what lets us call $4$ the limit.",
+        "The distance-from-$2$ readout keeps shrinking but the point never lands on the hole. You never need to arrive to see where you are headed.",
+        "Read the last two lines together: $f(2)$ itself is undefined, yet $\\lim_{x\\to 2} f(x)=4$. A limit describes the approach, not the arrival."
+      ],
+      "challenges": [
+        {
+          "prompt": "Slide $x$ as close to $2$ as the slider will take you, and read $f(x)$ there.",
+          "check": {
+            "param": "x",
+            "target": 2,
+            "tol": 0.05
+          },
+          "explain": "At $x=2$ the formula gives $\\tfrac{0}{0}$, so $f(x)$ reads undefined (hole) — there is genuinely no point on the graph here. The limit line still reads $4$, because the limit is built from the values near $2$, never from the value at $2$."
+        },
+        {
+          "prompt": "Now back off to $x=1.9$ and read $f(x)$ — approach the hole from the left side only, without touching it.",
+          "check": {
+            "param": "x",
+            "target": 1.9,
+            "tol": 0.03
+          },
+          "explain": "Here $f(1.9)=3.9$, one tenth below $4$, and the function is perfectly well defined: $1.9$ is not $2$, so the cancelled factor causes no trouble. Walk through $1.9,\\ 1.99,\\ 1.999$ and $f(x)$ runs $3.9,\\ 3.99,\\ 3.999$ — the left-hand limit is $4$. The right-hand side does the same thing coming down, and because the two sides agree the two-sided limit exists."
+        }
+      ],
+      "review": "1.2"
+    }
+  ]
+}

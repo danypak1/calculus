@@ -1,0 +1,289 @@
+{
+  "module": "ch01",
+  "title": "Limits",
+  "mcqIntro": "12 quick concept checks — two for each of the module's six sections, built from the traps the notes flag rather than from the routine drills. Pick an answer to check it instantly; a wrong pick names the specific misreading it comes from and points you at the section to re-read. The real work of the module is in the 14 written problems below.",
+  "mcq": [
+    {
+      "id": "A1",
+      "topic": "Difference quotient",
+      "stem": "A student writes the difference quotient for $f(x)=x^2$ at $x=3$, substitutes $h=0$ straight away, and lands on $\\dfrac{0}{0}$. What has that result actually told them?",
+      "options": {
+        "a": "the tangent slope at that point is equal to zero",
+        "b": "the curve fails to have a tangent there",
+        "c": "the algebra needs simplifying before $h$ shrinks",
+        "d": "the secant slope is undefined at each step $h$"
+      }
+    },
+    {
+      "id": "A2",
+      "topic": "Difference quotient",
+      "stem": "At the point $(2,5)$ on a curve, the tangent line has slope $4$. The normal line at that same point has slope",
+      "options": {
+        "a": "negative one quarter",
+        "b": "negative four",
+        "c": "positive four",
+        "d": "positive one quarter"
+      }
+    },
+    {
+      "id": "A3",
+      "topic": "Limit laws",
+      "stem": "Inside $\\dfrac{x+3}{x+5}$ a student crosses the $x$ on top against the $x$ underneath. What makes that step illegal?",
+      "options": {
+        "a": "cancelling needs equal constants above and below",
+        "b": "each $x$ carries a hidden sign in front of it",
+        "c": "each $x$ sits inside a sum, so it is not a factor",
+        "d": "the fraction has to be rationalised beforehand"
+      }
+    },
+    {
+      "id": "A4",
+      "topic": "Limit laws",
+      "stem": "Putting $x=3$ into $\\dfrac{x^2-x-6}{x-3}$ returns $\\dfrac{0}{0}$. Which conclusion follows?",
+      "options": {
+        "a": "the limit fails to exist at $x=3$",
+        "b": "the limit exists and equals $0$",
+        "c": "the limit runs off to infinity there",
+        "d": "the limit exists and equals $5$"
+      }
+    },
+    {
+      "id": "A5",
+      "topic": "Epsilon and delta",
+      "stem": "In the tolerance game behind $\\displaystyle\\lim_{x\\to a}f(x)=L$, what is it that $\\varepsilon$ measures?",
+      "options": {
+        "a": "how close $f(x)$ lands to $L$",
+        "b": "how steep the graph is near $a$",
+        "c": "how close $x$ lands to $a$",
+        "d": "how large the slope $|m|$ grows"
+      }
+    },
+    {
+      "id": "A6",
+      "topic": "Epsilon and delta",
+      "stem": "For $f(x)=6x$ near $a=1$ the shortcut $\\delta=\\varepsilon/|m|$ hands back $\\delta=0.05$. A classmate works with $\\delta=0.02$ instead. That choice is",
+      "options": {
+        "a": "wrong, since the formula fixes delta exactly",
+        "b": "wrong, since delta has to exceed epsilon",
+        "c": "sound, since a tighter input window still works",
+        "d": "sound, provided epsilon is doubled to match"
+      }
+    },
+    {
+      "id": "A7",
+      "topic": "One-sided limits",
+      "stem": "Both one-sided limits of a piecewise $f$ at $x=1$ come out as $4$, yet the rule assigns $f(1)=7$. The value of $\\displaystyle\\lim_{x\\to 1}f(x)$ is then",
+      "options": {
+        "a": "$7$, since the assigned value wins at $x=1$",
+        "b": "$4$, but the point needs redefining first",
+        "c": "undefined, since $4$ and $7$ disagree",
+        "d": "$4$, since a limit ignores the assigned value"
+      }
+    },
+    {
+      "id": "A8",
+      "topic": "One-sided limits",
+      "stem": "Describe how $g(x)=\\dfrac{|x-6|}{x-6}$ behaves on each side of $x=6$.",
+      "options": {
+        "a": "zero from both sides, so the limit is zero",
+        "b": "minus one from the left, plus one from the right",
+        "c": "plus one from both sides, so the limit is one",
+        "d": "plus one from the left, minus one from the right"
+      }
+    },
+    {
+      "id": "A9",
+      "topic": "Continuity",
+      "stem": "A function has matching one-sided limits of $3$ at $x=2$, while its rule sets $f(2)=8$. Which description fits the graph there?",
+      "options": {
+        "a": "fully continuous, since the two sides agree",
+        "b": "a removable discontinuity, a hole to patch",
+        "c": "a jump discontinuity, with the sides at odds",
+        "d": "an infinite discontinuity, a vertical blowup"
+      }
+    },
+    {
+      "id": "A10",
+      "topic": "Continuity",
+      "stem": "The rule $f(x)=x^2+1$ for $x<2$ and $f(x)=kx-3$ for $x\\ge 2$ turns out to be continuous at $x=2$ when $k$ takes the value",
+      "options": {
+        "a": "$2.5$",
+        "b": "$4$",
+        "c": "$8$",
+        "d": "$3.5$"
+      }
+    },
+    {
+      "id": "A11",
+      "topic": "Asymptotes",
+      "stem": "The graph of $y=\\dfrac{(x-5)(x+2)}{(x-5)(x-1)}$ runs into trouble at $x=5$. What sits at that input?",
+      "options": {
+        "a": "a removable hole, because that factor cancels",
+        "b": "a vertical asymptote, because the bottom vanishes",
+        "c": "a horizontal asymptote at that same height",
+        "d": "an ordinary point where the graph stays smooth"
+      }
+    },
+    {
+      "id": "A12",
+      "topic": "Asymptotes",
+      "stem": "Which line does the graph of $y=\\dfrac{6x^2-x+4}{2x^2+9}$ flatten toward far out to the right?",
+      "options": {
+        "a": "$y=1$",
+        "b": "$y=6$",
+        "c": "$y=0$",
+        "d": "$y=3$"
+      }
+    }
+  ],
+  "short": [
+    {
+      "id": "B1",
+      "topic": "Difference quotient",
+      "prompt": "Let $f(x)=3x^2-4x$. Work through the difference quotient $\\dfrac{f(1+h)-f(1)}{h}$, simplify it completely, then let $h\\to 0$ to obtain the slope of the tangent at $x=1$. Show the step where the $h$ is cancelled. [3 marks]"
+    },
+    {
+      "id": "B2",
+      "topic": "Difference quotient",
+      "prompt": "A drone is launched so that its height in metres after $t$ seconds is $H(t)=24t-4t^2$. Find its average velocity over the interval from $t=1$ to $t=4$, and say in one sentence what that number describes about the flight. [3 marks]"
+    },
+    {
+      "id": "B3",
+      "topic": "Limit laws",
+      "prompt": "Evaluate $\\displaystyle\\lim_{x\\to 5}\\frac{x^2-3x-10}{x-5}$. Begin by recording what direct substitution produces, then repair it. [3 marks]"
+    },
+    {
+      "id": "B4",
+      "topic": "Limit laws",
+      "prompt": "A workshop's revenue in dollars from selling $x$ chairs is $R(x)=8x-0.02x^2$. Compute $\\displaystyle\\lim_{x\\to 20}R(x)$, and explain why no algebraic repair is called for here. [3 marks]"
+    },
+    {
+      "id": "B5",
+      "topic": "Epsilon and delta",
+      "prompt": "For $f(x)=5x-2$ approaching $a=3$, the target is $L=13$ and the output must stay within $\\varepsilon=0.35$ of $L$. Produce a delta that guarantees this, then confirm the guarantee by testing the two edge inputs. [3 marks]"
+    },
+    {
+      "id": "B6",
+      "topic": "One-sided limits",
+      "prompt": "Take $f(x)=4x+5$ for $x\\le -1$ and $f(x)=-2x$ for $x>-1$. Work out each one-sided limit at $x=-1$ and decide whether $\\displaystyle\\lim_{x\\to -1}f(x)$ exists. [3 marks]"
+    },
+    {
+      "id": "B7",
+      "topic": "One-sided limits",
+      "prompt": "A left-luggage locker charges $L(h)=6$ dollars for $0<h\\le 2$ and $L(h)=10$ dollars for $2<h\\le 4$. Find the two one-sided limits at $h=2$, and say what a customer experiences the moment the clock passes two hours. [3 marks]"
+    },
+    {
+      "id": "B8",
+      "topic": "Continuity",
+      "prompt": "Find the number $b$ for which $f(x)=2x+b$ on $x\\le 4$ and $f(x)=x^2-5$ on $x>4$ is continuous at $x=4$. State which of the three continuity conditions your equation is enforcing. [3 marks]"
+    },
+    {
+      "id": "B9",
+      "topic": "Asymptotes",
+      "prompt": "Locate the vertical asymptotes of $y=\\dfrac{3x}{x^2-2x-8}$, and justify why each one is genuine rather than a hole. [3 marks]"
+    },
+    {
+      "id": "B10",
+      "topic": "Asymptotes",
+      "prompt": "A print shop's average cost per poster is $A(x)=\\dfrac{800+4x}{x}$ dollars when $x$ posters are produced. Find the horizontal asymptote as $x\\to\\infty$, and explain in the language of fixed and variable cost what the shop should read into it. [3 marks]"
+    }
+  ],
+  "extended": [
+    {
+      "id": "C1",
+      "topic": "Difference quotient",
+      "title": "A cyclist on a straight road",
+      "intro": "A cyclist's distance from a lamp post, in metres, $t$ seconds after she sets off is modelled by $s(t)=t^2+6t$ for $0\\le t\\le 6$. Throughout this question work from the limit definition only — no differentiation rules have been introduced yet.",
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the cyclist's average velocity over the interval from $t=0$ to $t=4$, and name the line on the distance-time graph whose slope that number is. [2 marks]"
+        },
+        {
+          "id": "b",
+          "prompt": "Using $\\displaystyle\\lim_{k\\to 0}\\frac{s(2+k)-s(2)}{k}$, obtain her instantaneous velocity at $t=2$. Expand every bracket before cancelling anything. [3 marks]"
+        },
+        {
+          "id": "c",
+          "prompt": "Write the equation of the tangent line to the graph of $s$ at $t=2$, and then the equation of the normal line at that same point. [3 marks]"
+        },
+        {
+          "id": "d",
+          "prompt": "The cyclist claims: *'my average speed over the first four seconds was the same as my speed at $t=2$.'* Using your answers above, say whether the numbers support her, and explain in one sentence why the agreement is a feature of this particular model rather than a general law. [2 marks]"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "topic": "Limit laws",
+      "title": "Two models that break at a single point",
+      "intro": "An engineer is handed two formulas, each of which misbehaves at exactly one input. Neither model is useless — each simply needs some algebra before it will give up its value.",
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "The first model is $v(t)=\\dfrac{t^2-25}{t-5}$, the speed of a trolley in metres per second for $t$ near $5$. Record what direct substitution returns, and explain in one sentence why that result is not the answer. [2 marks]"
+        },
+        {
+          "id": "b",
+          "prompt": "Evaluate $\\displaystyle\\lim_{t\\to 5}v(t)$ by factoring, and state the speed the trolley is heading toward even though the formula yields nothing at $t=5$ itself. [3 marks]"
+        },
+        {
+          "id": "c",
+          "prompt": "The second model is $w(x)=\\dfrac{\\sqrt{x+25}-5}{x}$ for $x$ near $0$, where factoring is of no help. Carry out the appropriate rationalising step and evaluate $\\displaystyle\\lim_{x\\to 0}w(x)$. [3 marks]"
+        },
+        {
+          "id": "d",
+          "prompt": "Each of your two answers is a number the formula itself never produces. Explain what that reveals about the difference between a limit and a function value. [2 marks]"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "topic": "Continuity",
+      "title": "A courier's pricing table",
+      "intro": "A courier charges $C(w)=7+3w$ dollars for a parcel weighing $w$ kilograms up to and including $5$ kg, and $C(w)=q+5w$ dollars for anything heavier. The company wants no visible step in the price at the $5$ kg mark.",
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Leaving $q$ as an unknown, write down $\\displaystyle\\lim_{w\\to 5^-}C(w)$ and $\\displaystyle\\lim_{w\\to 5^+}C(w)$. [2 marks]"
+        },
+        {
+          "id": "b",
+          "prompt": "Determine the value of $q$ that removes the step, and name which of the three continuity conditions your equation is enforcing. [3 marks]"
+        },
+        {
+          "id": "c",
+          "prompt": "A rival courier sets $q=0$ instead. Classify the discontinuity that appears at $w=5$, and state how much a customer's bill changes across that instant. [3 marks]"
+        },
+        {
+          "id": "d",
+          "prompt": "Explain why confirming that the two one-sided limits agree would not, on its own, prove the price function is continuous at $w=5$. [2 marks]"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "topic": "Asymptotes",
+      "title": "Reading a reaction-rate curve",
+      "intro": "A chemist models the rate of a reaction, in units per second, as $r(c)=\\dfrac{4c^2-16}{c^2-c-2}$, where $c$ is the concentration of a reagent. She wants to know the curve's long-run height and exactly where it breaks down.",
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Factor the numerator and the denominator completely, then cancel whatever the two share. [2 marks]"
+        },
+        {
+          "id": "b",
+          "prompt": "Identify the vertical asymptote and the removable hole, making clear which input gives which and on what grounds. [3 marks]"
+        },
+        {
+          "id": "c",
+          "prompt": "Find the horizontal asymptote as $c\\to\\infty$, and state what it tells the chemist about the rate at high concentration. [3 marks]"
+        },
+        {
+          "id": "d",
+          "prompt": "As $c$ approaches $-1$ from the right, does $r$ run off to $+\\infty$ or to $-\\infty$? Justify your answer using the sign of each factor. [2 marks]"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "_note": "PROTOTYPE ONLY. In production this file is never shipped to the client — it lives behind the auth API (Cloudflare Worker) and is served per-question to logged-in students.",
+  "mcq": {
+    "A1": {
+      "answer": "c",
+      "review": "1.1",
+      "explanation": "$\\dfrac{0}{0}$ is neither a number nor a verdict — it is the difference quotient reporting that the limit was taken one step too early. Do the algebra first: $(3+h)^2-9=6h+h^2$, divide by $h$ to get $6+h$ (legal, because $h$ is near zero but never equal to it), and *only now* let $h\\to 0$. The tangent slope is $6$. Every tangent-slope computation in this module has that shape — expand, cancel the $h$, then take the limit.",
+      "diagnostics": {
+        "a": "You read $\\dfrac{0}{0}$ as the number zero. It is not a value at all: top and bottom both vanish, so the fraction records nothing about the slope until the $h$ has been cancelled.",
+        "b": "A parabola has a perfectly good tangent at every one of its points. $\\dfrac{0}{0}$ reports a stalled calculation, not a missing tangent line.",
+        "d": "For any $h\\ne 0$ the secant slope is a genuine number, namely $6+h$. Only the single value $h=0$ is excluded — which is precisely why a limit is used instead of substitution."
+      }
+    },
+    "A2": {
+      "answer": "a",
+      "review": "1.1",
+      "explanation": "The normal is perpendicular to the tangent, so its slope is the **negative reciprocal**: flip $4$ to $\\dfrac{1}{4}$ *and* change the sign, giving $-\\dfrac{1}{4}$. Check it the reliable way — perpendicular slopes multiply to $-1$, and $4\\times\\left(-\\dfrac14\\right)=-1$. The exam's tangent-and-normal question pays for doing both operations, not one.",
+      "diagnostics": {
+        "b": "You changed the sign but did not flip the fraction. Test it: $4\\times(-4)=-16$, not $-1$, so those two lines are not perpendicular.",
+        "c": "That is the tangent's own slope. The normal is a different line through the same point, and the two cannot share a slope.",
+        "d": "You flipped the fraction but kept the sign. $4\\times\\dfrac14=1$, and perpendicular slopes have to multiply to $-1$."
+      }
+    },
+    "A3": {
+      "answer": "c",
+      "review": "1.2",
+      "explanation": "Cancelling *is* division, and division only clears something that multiplies the whole numerator and the whole denominator. Here the $x$ is one addend of a sum, so there is nothing common to divide out. Test it with a number: at $x=5$ the fraction is $\\dfrac{8}{10}=\\dfrac{4}{5}$, while the illegal cancellation predicts $\\dfrac{3}{5}$. Factors cancel; terms never do.",
+      "diagnostics": {
+        "a": "Constants have nothing to do with it. What cancelling needs is a common *factor*, and a sum does not supply one.",
+        "b": "Signs are not the issue. The step would be just as illegal with every term positive, because the $x$ is not a factor of either the top or the bottom.",
+        "d": "Rationalising is the tool for square roots. There is no root here, and plain substitution already works — the value is $\\dfrac{4}{5}$ at $x=5$."
+      }
+    },
+    "A4": {
+      "answer": "d",
+      "review": "1.2",
+      "explanation": "$\\dfrac{0}{0}$ is the signal that top and bottom share a factor, not a dead end. Factor it: $x^2-x-6=(x-3)(x+2)$, so the expression equals $x+2$ at every $x\\ne 3$, and $x+2\\to 5$. The graph has a hole at $x=3$ and a perfectly good limit there — a function having a limit where its formula produces nothing is the whole reason limits exist.",
+      "diagnostics": {
+        "a": "You treated $\\dfrac{0}{0}$ as a verdict. It is an instruction to factor: a limit can exist at a point where the formula itself produces nothing.",
+        "b": "You took the vanishing numerator as the answer. The denominator vanishes at the same rate, and the two cancel to leave $x+2$, not $0$.",
+        "c": "Blowing up needs a denominator heading to zero while the numerator does not. Here both head to zero, so the shared factor cancels instead."
+      }
+    },
+    "A5": {
+      "answer": "a",
+      "review": "1.3",
+      "explanation": "Epsilon is the **output** tolerance. It draws the horizontal band $L-\\varepsilon<f(x)<L+\\varepsilon$ on the $y$-axis, and delta answers on the $x$-axis by naming how close the input has to be for the output to land inside that band. Keeping the two letters on their own axes is essentially the entire content of the precise definition; for a straight line the link between them is $\\delta=\\varepsilon/|m|$.",
+      "diagnostics": {
+        "b": "Steepness is $|m|$, the exchange rate that converts one tolerance into the other. It is not itself a tolerance.",
+        "c": "That is delta's job. You have the two letters swapped: delta lives on the input axis, epsilon on the output axis.",
+        "d": "The slope is a property of the function, fixed long before anyone asks for a tolerance. Epsilon is chosen by whoever is checking the work."
+      }
+    },
+    "A6": {
+      "answer": "c",
+      "review": "1.3",
+      "explanation": "The shortcut supplies the **largest** delta guaranteed to work, not the only one. Squeezing the input window from $0.05$ down to $0.02$ can only push $f(x)$ closer to $L$, so the epsilon promise still holds, with room to spare. Any $\\delta\\le\\varepsilon/|m|$ is a correct answer — which is why two students can hand in different deltas and both be right.",
+      "diagnostics": {
+        "a": "The formula supplies one safe delta, not a unique one. Every smaller positive delta inherits the same guarantee automatically.",
+        "b": "There is no required ordering between the two. For $f(x)=6x$ the delta comes out six times smaller than the epsilon, and that is normal for a steep line.",
+        "d": "Epsilon is set by whoever states the tolerance; you do not get to change it. Shrinking delta keeps the original epsilon satisfied on its own."
+      }
+    },
+    "A7": {
+      "answer": "d",
+      "review": "1.4",
+      "explanation": "A limit is assembled only from inputs *near* $x=1$, never from $x=1$ itself. Both sides head for $4$, so the limit is $4$ — and it stays $4$ whatever the rule declares $f(1)$ to be, or even if $f(1)$ is left undefined altogether. The clash between $4$ and $7$ is a statement about **continuity**, not about the limit: a hole at height $4$ with a stray dot at height $7$.",
+      "diagnostics": {
+        "a": "You are reading the limit as a statement about the value at the point. It never is — the value at the point is the one thing a limit deliberately ignores.",
+        "b": "Nothing has to be repaired for the limit to exist; it is already $4$. Redefining $f(1)$ would repair the *continuity*, which is a separate question asked later.",
+        "c": "Existence requires the two one-sided limits to agree with each other, and they do — both are $4$. The number $7$ is not one of the sides."
+      }
+    },
+    "A8": {
+      "answer": "b",
+      "review": "1.4",
+      "explanation": "For $x>6$ the inside $x-6$ is positive, so $|x-6|=x-6$ and $g(x)=1$. For $x<6$ the inside is negative, so $|x-6|=-(x-6)$ and $g(x)=-1$. The two sides land on different numbers, so $\\displaystyle\\lim_{x\\to 6}g(x)$ does not exist: a jump of height $2$ at that single input. The sign flip below the breakpoint is exactly the step this question exists to catch.",
+      "diagnostics": {
+        "a": "The numerator does vanish at $x=6$ itself, but so does the denominator, and at every nearby input the ratio is $1$ or $-1$ — it is never near zero.",
+        "c": "You treated $|x-6|$ as $x-6$ everywhere and cancelled. That is valid only to the right of $6$; to the left the absolute value genuinely changes the formula.",
+        "d": "You applied the sign flip to the wrong side. Below $6$ the quantity $x-6$ is negative, so it is the *left* branch that picks up the extra minus."
+      }
+    },
+    "A9": {
+      "answer": "b",
+      "review": "1.5",
+      "explanation": "Run the three-part inspection. $f(2)=8$ is defined, so condition one passes. Both sides give $3$, so the limit exists and condition two passes. But $3\\ne 8$, so condition three fails. The picture is a hole at height $3$ with a lone dot at height $8$, and redefining $f(2)=3$ repairs it completely — which is what **removable** means.",
+      "diagnostics": {
+        "a": "Agreeing sides clear condition two and nothing more. Continuity also demands that the shared value equal $f(2)$, and $3\\ne 8$.",
+        "c": "A jump needs the two one-sided limits to differ from each other. Here both are $3$; the disagreement is between the limit and the assigned value.",
+        "d": "Infinite discontinuities come from a denominator heading to zero. Nothing here grows without bound — both sides settle on the finite number $3$."
+      }
+    },
+    "A10": {
+      "answer": "b",
+      "review": "1.5",
+      "explanation": "Continuity at a joint means the two pieces have to meet there. The left piece approaches $2^2+1=5$; the right piece is worth $k(2)-3=2k-3$ at $x=2$. Setting $2k-3=5$ gives $2k=8$, so $k=4$. Substitute back as a check: both pieces deliver $5$, and the graph crosses the joint without a step. This is the exam's continuity question in miniature.",
+      "diagnostics": {
+        "a": "You left the $-3$ out of the equation and solved $2k=5$. The constant travels with its piece and has to appear on that side.",
+        "c": "You solved $k-3=5$, dropping the factor of $2$ that multiplies $k$. The right-hand piece is $kx-3$ evaluated at $x=2$, so the $k$ is doubled.",
+        "d": "You matched the right-hand piece to $x^2$ rather than to $x^2+1$, losing the $+1$ and solving $2k-3=4$."
+      }
+    },
+    "A11": {
+      "answer": "a",
+      "review": "1.6",
+      "explanation": "Factor before you judge, always. The $(x-5)$ appears on both top and bottom, so it cancels and the function equals $\\dfrac{x+2}{x-1}$ at every $x\\ne 5$ — a finite height of $\\dfrac{7}{4}$ that the graph approaches from both sides but never occupies. A zero denominator produces a vertical asymptote only when the matching factor survives cancellation; here the genuine asymptote is at $x=1$ instead.",
+      "diagnostics": {
+        "b": "You read the denominator before factoring. A zero denominator is necessary but not sufficient — the factor has to survive the cancellation, and this one does not.",
+        "c": "Horizontal asymptotes describe the graph's behaviour as $x$ runs out to $\\pm\\infty$. They never describe what sits above one particular input.",
+        "d": "Not quite ordinary: $x=5$ is missing from the domain, so there is a genuine gap in the curve even though nothing blows up."
+      }
+    },
+    "A12": {
+      "answer": "d",
+      "review": "1.6",
+      "explanation": "Top and bottom are both degree $2$, so the horizontal asymptote is the **ratio of the leading coefficients**: $\\dfrac{6}{2}=3$. Dividing every term by $x^2$ shows it directly, $\\dfrac{6-1/x+4/x^2}{2+9/x^2}\\to\\dfrac{6}{2}$. Equal degrees do not mean an asymptote at height $1$; they mean you are obliged to read the two coefficients off the page.",
+      "diagnostics": {
+        "a": "You assumed equal degrees always give $y=1$. That happens only when the leading coefficients happen to match, and here they are $6$ and $2$.",
+        "b": "You read only the numerator's leading coefficient and forgot to divide it by the denominator's $2$.",
+        "c": "Height zero is the answer when the top's degree is *smaller* than the bottom's. Here the degrees are equal, so the ratio survives."
+      }
+    }
+  },
+  "short": {
+    "B1": {
+      "review": "1.1",
+      "model": "First $f(1)=3-4=-1$. Then $f(1+h)=3(1+h)^2-4(1+h)$, and each bracket is **expanded** in full: $3(1+2h+h^2)=3+6h+3h^2$ and $-4(1+h)=-4-4h$, which add to $-1+2h+3h^2$. Subtracting $f(1)=-1$ leaves $2h+3h^2$. Every term now carries an $h$, so the factor $h$ is **cancelled** against the denominator to give the quotient $2+3h$ — legal because $h$ is near zero but never equal to it. Taking the **limit** as $h\\to 0$ gives $2$, so the **tangent slope** at $x=1$ is $2$.",
+      "marks": [
+        "$f(1+h)$ expanded in full to $-1+2h+3h^2$",
+        "the factor $h$ cancelled to leave the quotient $2+3h$",
+        "the limit as $h\\to 0$ taken, giving tangent slope $2$"
+      ]
+    },
+    "B2": {
+      "review": "1.1",
+      "model": "Both endpoints are **evaluated** first: $H(4)=96-64=32$ metres and $H(1)=24-4=20$ metres. The **average velocity** is the change in height divided by the change in time, $\\dfrac{32-20}{4-1}=\\dfrac{12}{3}=4$ metres per second. That number is the **slope** of the **secant** line joining the two points on the height-time graph: it reports the net gain in height per second across the whole three-second stretch, and says nothing about the drone's speed at any single **instant** inside it — the drone is in fact rising fast at $t=1$, pausing at the top of its arc near $t=3$, and already descending by $t=4$.",
+      "marks": [
+        "$H(4)=32$ and $H(1)=20$ both evaluated",
+        "average velocity computed as $12/3=4$ metres per second",
+        "interpreted as the secant slope across the interval, not a speed at one instant"
+      ]
+    },
+    "B3": {
+      "review": "1.2",
+      "model": "**Direct substitution** produces $\\dfrac{25-15-10}{0}=\\dfrac{0}{0}$, which is a signal rather than an answer: top and bottom share a hidden factor. The **numerator** is **factored** by hunting two numbers multiplying to $-10$ and adding to $-3$, namely $-5$ and $2$, so $x^2-3x-10=(x-5)(x+2)$. The **common factor** $(x-5)$ is then **cancelled**, which is permitted because the limit only inspects values near $5$ and never $5$ itself, leaving $x+2$. Substituting now gives $5+2=7$, so the **limit** is $7$.",
+      "marks": [
+        "direct substitution shown to produce $0/0$",
+        "numerator factored as $(x-5)(x+2)$",
+        "common factor cancelled and the limit evaluated as $7$"
+      ]
+    },
+    "B4": {
+      "review": "1.2",
+      "model": "$R$ is a **polynomial**, and polynomials are exactly the functions for which **substitution** is guaranteed to deliver the limit — there is no denominator that can hit zero, so no factoring or rationalising is needed. **Computing** the two pieces: $8(20)=160$ and $0.02(20)^2=0.02\\times 400=8$. Therefore $\\displaystyle\\lim_{x\\to 20}R(x)=160-8=152$ **dollars**. Read in context: as production closes in on twenty chairs from either direction, the workshop's revenue closes in on $\\$152$.",
+      "marks": [
+        "identifies $R$ as a polynomial, so substitution is legitimate",
+        "computing $8(20)=160$ and $0.02(20)^2=8$",
+        "limit stated as $152$ dollars and tied to revenue near twenty chairs"
+      ]
+    },
+    "B5": {
+      "review": "1.3",
+      "model": "The **slope** here is $m=5$, so its size is $|m|=5$, and the straight-line **shortcut** gives $\\delta=\\dfrac{\\varepsilon}{|m|}=\\dfrac{0.35}{5}=0.07$. **Checking** the two **edge** inputs confirms it. At $x=3+0.07=3.07$: $f(3.07)=15.35-2=13.35$, which sits $0.35$ from $L=13$. At $x=3-0.07=2.93$: $f(2.93)=14.65-2=12.65$, again $0.35$ from $L$. Both land exactly on the rim of the tolerance band, so every $x$ strictly inside the delta-window produces an $f(x)$ strictly inside the band, as promised.",
+      "marks": [
+        "slope size $|m|=5$ identified and the shortcut applied",
+        "delta reported as $0.07$",
+        "both edge inputs checked, each landing $0.35$ away from $L$"
+      ]
+    },
+    "B6": {
+      "review": "1.4",
+      "model": "Approaching from the **left** means using the piece valid just below $-1$, which is $4x+5$: the left-hand limit is $4(-1)+5=1$. Approaching from the **right** means using the piece valid just above $-1$, which is $-2x$: the right-hand limit is $-2(-1)=2$. The two **sides** produce $1$ and $2$, and since these **disagree** there is no single height the function is heading toward. The two-sided **limit** therefore does **not exist** at $x=-1$; the graph carries a jump of height $1$ at that input.",
+      "marks": [
+        "left-hand limit computed from $4x+5$ as $1$",
+        "right-hand limit computed from $-2x$ as $2$",
+        "concludes the sides disagree, so the limit does not exist"
+      ]
+    },
+    "B7": {
+      "review": "1.4",
+      "model": "Just **below** two hours the first band applies, so the left-hand **limit** is the constant $6$ **dollars**. Just **above** two hours the second band applies, so the right-hand limit is the constant $10$ dollars. The two one-sided limits are different numbers, so $\\displaystyle\\lim_{h\\to 2}L(h)$ does **not exist**. In practical terms the customer meets a genuine **jump**: at two hours exactly the charge is still $\\$6$, but an instant later it is $\\$10$, a sudden four-dollar step rather than a gradual increase. This is the price a step-function tariff pays for its simplicity.",
+      "marks": [
+        "left-hand limit read from the first band as $6$ dollars",
+        "right-hand limit read from the second band as $10$ dollars",
+        "limit declared not to exist, and the four-dollar jump described"
+      ]
+    },
+    "B8": {
+      "review": "1.5",
+      "model": "The piece that owns $x=4$ is the first one, so the **value** there is $f(4)=2(4)+b=8+b$, and this is also the left-hand limit. The right-hand **limit** comes from $x^2-5$ and equals $4^2-5=11$. **Continuity** requires the limit to match the value, so the **equation** is $8+b=11$, **solved** to give $b=3$. The condition being enforced is the third one — the two one-sided limits already exist, and setting them equal makes the limit exist *and* agree with $f(4)$, which is precisely what continuity asks beyond mere existence.",
+      "marks": [
+        "left-hand value written as $8+b$ from the first piece",
+        "right-hand limit computed as $11$ from $x^2-5$",
+        "equation solved for $b=3$, enforcing that the limit matches the value"
+      ]
+    },
+    "B9": {
+      "review": "1.6",
+      "model": "The **denominator** is **factored** by finding two numbers multiplying to $-8$ and adding to $-2$, namely $-4$ and $2$: $x^2-2x-8=(x-4)(x+2)$. It vanishes at $x=4$ and at $x=-2$, so those are the two candidates. Each must now be tested against the **numerator** $3x$: at $x=4$ it gives $12$, and at $x=-2$ it gives $-6$. Neither is **zero**, so neither factor **cancels** and both survive as genuine **vertical asymptotes** at $x=4$ and $x=-2$. Had one cancelled, that input would have been a removable hole with no blow-up at all.",
+      "marks": [
+        "denominator factored as $(x-4)(x+2)$",
+        "vertical asymptotes located at $x=4$ and $x=-2$",
+        "numerator checked as non-zero at both, so neither factor cancels"
+      ]
+    },
+    "B10": {
+      "review": "1.6",
+      "model": "**Splitting** the fraction term by term gives $A(x)=\\dfrac{800}{x}+4$. As $x\\to\\infty$ the term $\\dfrac{800}{x}$ **vanishes**, because a **fixed** number divided by an ever-larger one shrinks toward zero, leaving the **horizontal asymptote** $y=4$. The reading is economic: the $\\$800$ **fixed** cost is spread across more and more posters until its share per poster is negligible, so the **average** cost per poster settles toward the $\\$4$ **variable** cost of producing one more. The shop can approach $\\$4$ per poster but never quite reach it.",
+      "marks": [
+        "the fraction split term by term into $800/x$ plus $4$",
+        "the term $800/x$ shown to vanish, giving the horizontal asymptote $y=4$",
+        "interpreted as the fixed cost spreading thin, leaving the variable cost"
+      ]
+    }
+  },
+  "extended": {
+    "C1": {
+      "review": "1.1",
+      "parts": {
+        "a": {
+          "model": "**Substituting** the endpoints: $s(4)=4^2+6(4)=16+24=40$ metres and $s(0)=0$. The **average** velocity is $\\dfrac{s(4)-s(0)}{4-0}=\\dfrac{40-0}{4}=10$ metres per second. Geometrically this is the **slope** of the **secant** line joining the points $(0,0)$ and $(4,40)$ on the distance-time graph — two points, one straight line between them.",
+          "marks": [
+            "$s(4)=40$ and $s(0)=0$ substituted into the average rate formula",
+            "average velocity given as $10$ metres per second, named as the secant slope"
+          ]
+        },
+        "b": {
+          "model": "First $s(2)=4+12=16$. Then $s(2+k)=(2+k)^2+6(2+k)$, **expanded** term by term as $4+4k+k^2+12+6k=16+10k+k^2$. Subtracting $s(2)=16$ leaves $10k+k^2$. Every remaining term carries a $k$, so the factor $k$ is **cancelled** against the denominator to give $10+k$. Letting $k\\to 0$ takes the **limit** to $10$, so the **instantaneous** velocity at $t=2$ is $10$ metres per second.",
+          "marks": [
+            "$s(2+k)$ expanded to $16+10k+k^2$ and $s(2)=16$ subtracted",
+            "factor $k$ cancelled to leave $10+k$",
+            "limit taken as $k\\to 0$, giving instantaneous velocity $10$"
+          ]
+        },
+        "c": {
+          "model": "The point is $(2,16)$ and the **tangent** slope from part (b) is $10$. Point-slope form gives $s-16=10(t-2)$, so the tangent line is $s=10t-4$. The **normal** slope is the negative **reciprocal** of $10$, namely $-\\dfrac{1}{10}$, so $s-16=-\\dfrac{1}{10}(t-2)$, which tidies to $s=-0.1t+16.2$. A quick check: $10\\times\\left(-\\dfrac{1}{10}\\right)=-1$, confirming the two lines are perpendicular.",
+          "marks": [
+            "point $(2,16)$ used with slope $10$ in point-slope form",
+            "tangent line given as $s=10t-4$",
+            "normal slope taken as the negative reciprocal, giving $s=-0.1t+16.2$"
+          ]
+        },
+        "d": {
+          "model": "The numbers do **support** her: part (a) gave an **average** of $10$ metres per second and part (b) gave an **instantaneous** velocity of $10$ metres per second at $t=2$, and $t=2$ is the midpoint of $[0,4]$. But this is a **coincidence** of the quadratic shape — for a **quadratic** the average rate of change across an interval always equals the instantaneous rate at the interval's midpoint, and that neat property fails for cubics, roots and most other models, so the claim must not be generalised.",
+          "marks": [
+            "both values identified as $10$, so the claim is supported",
+            "agreement explained as a midpoint property of a quadratic, not a general law"
+          ]
+        }
+      }
+    },
+    "C2": {
+      "review": "1.2",
+      "parts": {
+        "a": {
+          "model": "**Direct substitution** gives $\\dfrac{25-25}{5-5}=\\dfrac{0}{0}$. This is an **indeterminate** form, not a value: because both the top and the bottom collapse to zero at the same input, the fraction carries no **information** about the height the function is heading toward until the shared factor causing the collapse is dug out. It is a signal to **factor**, not a verdict that the limit is missing.",
+          "marks": [
+            "substitution shown to return the indeterminate form $0/0$",
+            "explained that $0/0$ carries no information and signals a shared factor to dig out"
+          ]
+        },
+        "b": {
+          "model": "The numerator is a **difference** of squares: $t^2-25=(t-5)(t+5)$. The **factor** $(t-5)$ appears above and below and is **cancelled**, which is permitted because the limit inspects only values near $5$, never $5$ itself, leaving $t+5$. Substituting now gives $5+5=10$, so $\\displaystyle\\lim_{t\\to 5}v(t)=10$. Physically the trolley's **speed** is closing in on $10$ metres per second from both directions, even though the model produces no output at that instant — the gap is in the formula, not in the motion.",
+          "marks": [
+            "numerator factored as a difference of squares, $(t-5)(t+5)$",
+            "factor cancelled to leave $t+5$",
+            "limit evaluated as $10$ and read as the speed approached from both directions"
+          ]
+        },
+        "c": {
+          "model": "Substitution again gives $\\dfrac{0}{0}$, and with a **square root** present the tool is the **conjugate** $\\sqrt{x+25}+5$. Multiplying top *and* bottom by it — a disguised multiplication by $1$ — turns the numerator into $(x+25)-25=x$, giving $\\dfrac{x}{x\\left(\\sqrt{x+25}+5\\right)}$. **Cancelling** the $x$ leaves $\\dfrac{1}{\\sqrt{x+25}+5}$, and substituting $x=0$ gives $\\dfrac{1}{5+5}=\\dfrac{1}{10}$. So the **limit** is $\\dfrac{1}{10}$.",
+          "marks": [
+            "top and bottom both multiplied by the conjugate $\\sqrt{x+25}+5$",
+            "numerator simplified to $x$ and the $x$ cancelled",
+            "limit evaluated as $1/10$"
+          ]
+        },
+        "d": {
+          "model": "A **limit** describes where a function is **heading** as the input closes in on a point, and it is assembled purely from nearby inputs. A function **value** is what the rule actually outputs *at* the point, and it may be some other number or may not exist at all. Both models are **undefined** at their trouble spot, yet each still has a perfectly definite limit there — which is why a **hole** in a graph is invisible to a limit, and why continuity has to be checked as a separate question.",
+          "marks": [
+            "limit described as where the function is heading, built from nearby inputs",
+            "function value described as the output at the point, which may be undefined"
+          ]
+        }
+      }
+    },
+    "C3": {
+      "review": "1.5",
+      "parts": {
+        "a": {
+          "model": "Just **below** $5$ kg the first rule applies, so the **left**-hand limit is $7+3(5)=22$ **dollars**. Just **above** $5$ kg the second rule applies, so the **right**-hand limit is $q+5(5)=q+25$ dollars, still carrying the unknown. Note that the first rule also owns the point itself, since it covers $w\\le 5$, so $C(5)=22$ as well.",
+          "marks": [
+            "left-hand limit obtained from the first rule as $22$ dollars",
+            "right-hand limit obtained from the second rule as $q+25$ dollars"
+          ]
+        },
+        "b": {
+          "model": "Setting the two one-sided limits **equal** gives the **equation** $q+25=22$, **solved** to give $q=-3$. Checking: the heavier rule becomes $-3+5w$, worth $-3+25=22$ at $w=5$, matching the lighter rule exactly. The **condition** being enforced is the third one on the checklist. The value $C(5)=22$ was already defined, so condition one held from the start; forcing the sides to agree makes the **limit** exist and simultaneously makes it equal $C(5)$, which is what continuity demands beyond mere existence.",
+          "marks": [
+            "equation $q+25=22$ formed from the two one-sided limits",
+            "solved to give $q=-3$",
+            "identified as the condition that the limit must equal $C(5)$"
+          ]
+        },
+        "c": {
+          "model": "With $q=0$ the heavier rule is $5w$, so the right-hand limit becomes $25$ dollars while the left-hand limit stays at $22$ dollars. The two **sides** now **disagree**, so the limit fails to exist and this is a **jump** discontinuity of height $3$. A parcel of exactly $5$ kg costs $\\$22$, while one a gram heavier costs $\\$25$ — a sudden three-dollar **step**. No redefinition of the single point $C(5)$ can repair it, because the two sides are genuinely heading for different heights; only changing a rule can.",
+          "marks": [
+            "right-hand limit recomputed as $25$ against a left-hand limit of $22$",
+            "classified as a jump discontinuity, since the sides disagree",
+            "three-dollar step described, and noted as unpatchable at a single point"
+          ]
+        },
+        "d": {
+          "model": "Agreeing sides establish only that the **limit** exists — the second of the three **conditions**. Continuity also demands that $C(5)$ be **defined** and that it **equal** that limit. A tariff could easily be written with both sides heading for $22$ while a special clause assigns $C(5)=20$ to exactly $5$ kg; the limit would exist, the price function would still be discontinuous, and the graph would show a **hole** at $22$ with a stray dot at $20$.",
+          "marks": [
+            "agreeing sides identified as establishing only that the limit exists",
+            "the further conditions named: $C(5)$ defined and equal to that limit"
+          ]
+        }
+      }
+    },
+    "C4": {
+      "review": "1.6",
+      "parts": {
+        "a": {
+          "model": "Taking the constant out first, the **numerator** is $4c^2-16=4(c^2-4)=4(c-2)(c+2)$ by the difference of squares. The **denominator** needs two numbers multiplying to $-2$ and adding to $-1$, namely $-2$ and $1$, so $c^2-c-2=(c-2)(c+1)$. The **shared factor** $(c-2)$ **cancels**, leaving $r(c)=\\dfrac{4(c+2)}{c+1}$ for every $c\\ne 2$.",
+          "marks": [
+            "numerator factored as $4(c-2)(c+2)$ and denominator as $(c-2)(c+1)$",
+            "shared factor $(c-2)$ cancelled to leave $4(c+2)/(c+1)$"
+          ]
+        },
+        "b": {
+          "model": "From the simplified form the denominator **vanishes** at $c=-1$, and the numerator there is $4(-1+2)=4$, which is **non-zero**. Since that factor **survived** the cancellation, $c=-1$ is a genuine **vertical asymptote**. At $c=2$ the factor was **cancelled** away, so the function does not blow up; it simply has no output at that one input while approaching the finite height $\\dfrac{4(4)}{3}=\\dfrac{16}{3}$ from both sides. That makes $c=2$ a removable **hole**, not an asymptote — which is why factoring has to come before any verdict.",
+          "marks": [
+            "vertical asymptote placed at $c=-1$, where the surviving factor vanishes",
+            "numerator checked as non-zero there",
+            "$c=2$ classified as a removable hole because that factor cancelled"
+          ]
+        },
+        "c": {
+          "model": "In the original expression the **degrees** are equal, both $2$, so the **horizontal asymptote** is the **ratio** of the leading **coefficients**: $\\dfrac{4}{1}=4$. Dividing every term by $c^2$ confirms it, $\\dfrac{4-16/c^2}{1-1/c-2/c^2}\\to\\dfrac{4}{1}$. The chemistry follows: rewriting the simplified form as $4+\\dfrac{4}{c+1}$ shows the leftover term shrinking toward zero, so at high **concentration** the **rate** settles onto $4$ units per second **from above** — at $c=10$ it is still $4.36$, at $c=100$ only $4.04$. Extra reagent buys less and less, and the curve levels off instead of growing.",
+          "marks": [
+            "degrees compared and found equal, so the ratio of leading coefficients applies",
+            "horizontal asymptote given as $y=4$",
+            "read as the rate levelling onto $4$ units per second from above at high concentration"
+          ]
+        },
+        "d": {
+          "model": "Work from the simplified $r(c)=\\dfrac{4(c+2)}{c+1}$ and test a **nearby** input such as $c=-0.99$. The **numerator** $4(c+2)$ is close to $4(1)=4$, comfortably **positive**. The **denominator** $c+1$ is a very small **positive** number, since $c$ sits just above $-1$. A positive divided by a shrinking positive grows without bound, so $r\\to+\\infty$ as $c\\to-1^{+}$. (From the left the denominator is a small negative, so the curve dives to $-\\infty$ instead.)",
+          "marks": [
+            "numerator identified as positive near $c=-1$",
+            "denominator identified as a small positive quantity, giving $+\\infty$"
+          ]
+        }
+      }
+    }
+  }
+}
